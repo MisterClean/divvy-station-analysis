@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "archive_count": 95,
+  "trip_rows": 57439268,
+  "all_station_entities": 3676,
+  "chicago_station_entities": 3389,
+  "operational_entities": 39,
+  "outside_chicago_entities": 81,
+  "missing_location_entities": 172,
+  "excluded_endpoints": 11573826,
+  "match_distance_meters": 150,
+  "accepted_alias_merges": 131,
+  "identity_review_pairs": 3210,
+  "resolved_endpoints": 103304710,
+  "valid_resolved_endpoints": 103282528
+}

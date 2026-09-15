@@ -1,0 +1,19 @@
+[project]
+name = "divvy-station-analysis"
+version = "0.1.0"
+description = "Reproducible station history from Divvy's official trip archives"
+requires-python = ">=3.12"
+dependencies = ["duckdb>=1.4,<2", "shapely>=2,<3"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.11", "ty"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

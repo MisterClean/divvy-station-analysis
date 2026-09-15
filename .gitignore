@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+data/raw/
+data/interim/
+data/*.duckdb*
+# Publish the small derived station artifact; all other generated data stays local.
+data/processed/*
+!data/processed/stations.csv
+*.zip
+*.part
+*.tmp
+*.duckdb
+*.duckdb.wal
+*.log
+.DS_Store

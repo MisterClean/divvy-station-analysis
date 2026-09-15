@@ -1,0 +1,10 @@
+{
+  "mode": "Complete pipeline with pinned local source ZIPs and an empty summary cache",
+  "source_archives": 95,
+  "trip_rows": 57439268,
+  "artifact": "data/processed/stations.csv",
+  "sha256": "ae878cf77976950cf24224d982c5d58990fbf751ea663e7a92ea2d612a16665c",
+  "byte_identical_to_clean_rebuild": true,
+  "full_dataset_checks_passed": 12,
+  "raw_source_spot_checks_passed": 5
+}

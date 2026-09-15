@@ -1,0 +1,862 @@
+{
+  "bucket": "https://divvy-tripdata.s3.amazonaws.com/",
+  "retrieved_at": "2026-09-15T18:11:01.613695+00:00",
+  "objects": [
+    {
+      "key": "202004-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202004-divvy-tripdata.zip",
+      "size": 3323572,
+      "etag": "e7a221ace4629d53dcd73a62b314b567",
+      "last_modified": "2020-06-01T14:50:06.000Z",
+      "sha256": "9ea273c1039da0350adf788be274bd01f0314c7d1dd1398affb4b2f35a3b484e",
+      "crc_verified": true
+    },
+    {
+      "key": "202005-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202005-divvy-tripdata.zip",
+      "size": 7988821,
+      "etag": "606a191a00a58840ce8d3cf7d08556e4",
+      "last_modified": "2020-06-01T14:50:09.000Z",
+      "sha256": "b29a2ac100bfc3341d693d12636ac0e7b5fdc19b5f98721b8b3a865da3bcc250",
+      "crc_verified": true
+    },
+    {
+      "key": "202006-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202006-divvy-tripdata.zip",
+      "size": 14732088,
+      "etag": "e397c3a64e4f8d4cefe90736cce330eb",
+      "last_modified": "2020-07-06T00:31:49.000Z",
+      "sha256": "b00bb784208c71a2463f019045fa0028170648d30828f0ff7fa9cbb28d5afb35",
+      "crc_verified": true
+    },
+    {
+      "key": "202007-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202007-divvy-tripdata.zip",
+      "size": 23621786,
+      "etag": "03907bf42f9d07b5b1f07e2aac487a04-2",
+      "last_modified": "2020-08-12T02:10:49.000Z",
+      "sha256": "6df1920b0194aa28177d0923d92548339be7befb787a534ca9ab0f28302bdddb",
+      "crc_verified": true
+    },
+    {
+      "key": "202008-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202008-divvy-tripdata.zip",
+      "size": 27861035,
+      "etag": "0dd42650cb58312d36f0b421f39dcccf-2",
+      "last_modified": "2020-09-04T15:11:40.000Z",
+      "sha256": "582da9e1adecbcd40a8af74a99078ee10f88dea32d7e5589c9151a9404fa0f74",
+      "crc_verified": true
+    },
+    {
+      "key": "202009-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202009-divvy-tripdata.zip",
+      "size": 24341444,
+      "etag": "344e86104bea2424f686a32e3a39070c-2",
+      "last_modified": "2020-10-13T20:06:37.000Z",
+      "sha256": "33b6bd6f369605412d6a7c5397930daac30ca3f5d997aa2fd65253f31019f34f",
+      "crc_verified": true
+    },
+    {
+      "key": "202010-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202010-divvy-tripdata.zip",
+      "size": 17862067,
+      "etag": "073d10b53c12078e60dd5c02e44147cb-2",
+      "last_modified": "2020-11-04T13:17:21.000Z",
+      "sha256": "80833b1a1f3ef24b7e03080474f34fe26cc4c7770ee5381e41b745cd81b024de",
+      "crc_verified": true
+    },
+    {
+      "key": "202011-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202011-divvy-tripdata.zip",
+      "size": 11671826,
+      "etag": "581af35ecf4434be7e06db88a156d35d",
+      "last_modified": "2020-12-04T22:32:44.000Z",
+      "sha256": "5c4808ffb29c63895d78c8e2e2a9a2e087a14a5a631a14446d05d785b524de7d",
+      "crc_verified": true
+    },
+    {
+      "key": "202012-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202012-divvy-tripdata.zip",
+      "size": 4839812,
+      "etag": "975f19f68bcd26448f66b342bf08fa0d",
+      "last_modified": "2021-01-05T13:56:54.000Z",
+      "sha256": "57fa80f5c4734c6829a8a1fcc9780ab1f963abbcbac35b42eef96880dc75ff94",
+      "crc_verified": true
+    },
+    {
+      "key": "202101-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202101-divvy-tripdata.zip",
+      "size": 3663505,
+      "etag": "d7b58a2101c69a9bda9ba096945c8397",
+      "last_modified": "2021-02-04T21:52:59.000Z",
+      "sha256": "ba0014f713b10ba66244d4480957993c1d3c00d7a0c7c18e51d8b02fec9c77ca",
+      "crc_verified": true
+    },
+    {
+      "key": "202102-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202102-divvy-tripdata.zip",
+      "size": 1906622,
+      "etag": "0880080a58c0f31bc54157ff1db8a9d1",
+      "last_modified": "2021-03-10T00:03:24.000Z",
+      "sha256": "efad573217c54316c26916a6414a83784fc5bed9df1c7df4d700c9120b5f8829",
+      "crc_verified": true
+    },
+    {
+      "key": "202103-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202103-divvy-tripdata.zip",
+      "size": 8019204,
+      "etag": "2942dbf457dbbdf00d8d8dc854911fbb",
+      "last_modified": "2021-04-08T14:28:53.000Z",
+      "sha256": "d7513f84752266bbd4396743d3500e59d10e73336bcb2b27107c36222f3bad52",
+      "crc_verified": true
+    },
+    {
+      "key": "202104-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202104-divvy-tripdata.zip",
+      "size": 11779512,
+      "etag": "1d8ba1c7bb2352c4e0ddebf792506a05",
+      "last_modified": "2021-05-07T14:52:05.000Z",
+      "sha256": "cde022a292caa213ba2c67b5f78ac9b1056e48daed44e2edc0a91fcf41b77891",
+      "crc_verified": true
+    },
+    {
+      "key": "202105-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202105-divvy-tripdata.zip",
+      "size": 18892952,
+      "etag": "9c2b9dc3b4b7a3b341f242c0f26987a4-2",
+      "last_modified": "2021-06-11T17:10:18.000Z",
+      "sha256": "2b4be0eb1322ef625263eda3a77ba4b19e036b14bb44a2be7bd1e6aafdd026d1",
+      "crc_verified": true
+    },
+    {
+      "key": "202106-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202106-divvy-tripdata.zip",
+      "size": 26516548,
+      "etag": "62bcfa0947d7e39c299dc4f5e59c8f1b-2",
+      "last_modified": "2021-07-15T23:22:05.000Z",
+      "sha256": "71b996624a38177c20e726344ec18a1e65bcfef2a164c606d530dbb5626b108e",
+      "crc_verified": true
+    },
+    {
+      "key": "202107-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202107-divvy-tripdata.zip",
+      "size": 29680807,
+      "etag": "0042b93934a2af77fd46750effe17dc9-2",
+      "last_modified": "2021-08-14T06:06:49.000Z",
+      "sha256": "2bb3476b2023ad99b6e21ddc5bf2f3b5718ce6edfea06038dce0c164205e4f3e",
+      "crc_verified": true
+    },
+    {
+      "key": "202108-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202108-divvy-tripdata.zip",
+      "size": 27875242,
+      "etag": "90b3b4665be43ffc3d45346d48c49ebb-2",
+      "last_modified": "2021-09-08T18:10:46.000Z",
+      "sha256": "e3407fdc8a3a15025fad29819d21ccbe1cdaedc8a2c6519cb74cb30d0f641831",
+      "crc_verified": true
+    },
+    {
+      "key": "202109-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202109-divvy-tripdata.zip",
+      "size": 27476580,
+      "etag": "479fa5e9cd74feb6d3bbe20fed2188ff-2",
+      "last_modified": "2021-10-04T17:21:39.000Z",
+      "sha256": "538acf9dbe16f4ce143a6fb0ed33fb22ed002d307481b1574d50c90d9fa6d7d1",
+      "crc_verified": true
+    },
+    {
+      "key": "202110-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202110-divvy-tripdata.zip",
+      "size": 23009069,
+      "etag": "eef8798863a6b45c1dd86b1205a491d0-2",
+      "last_modified": "2021-11-04T19:58:36.000Z",
+      "sha256": "1f045c7e989b3f2967de398492e3aaf084f49d23b57961b3229cdcab1ae9377e",
+      "crc_verified": true
+    },
+    {
+      "key": "202111-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202111-divvy-tripdata.zip",
+      "size": 13824532,
+      "etag": "f7ef4b9864f055cac384b0888cd43374",
+      "last_modified": "2021-12-08T20:19:04.000Z",
+      "sha256": "f70459fed60c4417a04af4ddfa6a25b28b8c23e63222aff9b10199d9958ff97b",
+      "crc_verified": true
+    },
+    {
+      "key": "202112-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202112-divvy-tripdata.zip",
+      "size": 9326798,
+      "etag": "b1f504c0a4fecb0514d31d84a24803b7",
+      "last_modified": "2022-01-06T16:18:45.000Z",
+      "sha256": "64a1ee474423f838bd1abdc361715b5ccdd8dafb0f615f58b586ded0de0f6508",
+      "crc_verified": true
+    },
+    {
+      "key": "202201-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202201-divvy-tripdata.zip",
+      "size": 3837661,
+      "etag": "356a4945f5fdbd8ffe82ddd3c9447eca",
+      "last_modified": "2022-02-02T16:55:22.000Z",
+      "sha256": "8773ba7f1fed12c12f68feb75beb7c558d3491ff10495c85b06ee8a7822b9580",
+      "crc_verified": true
+    },
+    {
+      "key": "202202-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202202-divvy-tripdata.zip",
+      "size": 4304708,
+      "etag": "77518d1d84f282cc66863e33be4f6763",
+      "last_modified": "2022-03-02T20:22:47.000Z",
+      "sha256": "079b20137e2d349ef3b2c6288a1199aa17453104d835b40dde2a458f05e07f62",
+      "crc_verified": true
+    },
+    {
+      "key": "202203-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202203-divvy-tripdata.zip",
+      "size": 10385621,
+      "etag": "9363df607888bf8c2d2d3d75d616f24b",
+      "last_modified": "2022-04-06T17:07:41.000Z",
+      "sha256": "834db67b490a6f584a16f70e7c45e9ae4d085143507ff8f453da63e13b7ed05c",
+      "crc_verified": true
+    },
+    {
+      "key": "202204-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202204-divvy-tripdata.zip",
+      "size": 13362492,
+      "etag": "c819bb1bea3eebf2eff6cabdb63e18e0",
+      "last_modified": "2022-05-03T16:33:19.000Z",
+      "sha256": "ba8dbfbdd4dddb93a5813f9003c6f0906321d3699b39523efcd9aafcc3f7ebfd",
+      "crc_verified": true
+    },
+    {
+      "key": "202205-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202205-divvy-tripdata.zip",
+      "size": 22678035,
+      "etag": "756dca7c4aeccfbbc6e449e8e872499d-2",
+      "last_modified": "2022-06-04T02:08:02.000Z",
+      "sha256": "0ef03621d64ab487b33dd110c4cae99270680d9f6b55ab96c401284ac64f3717",
+      "crc_verified": true
+    },
+    {
+      "key": "202206-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202206-divvy-tripdata.zip",
+      "size": 26903847,
+      "etag": "e55ca9a8d5b10e82c046fa42dfd72720-2",
+      "last_modified": "2022-07-15T15:27:59.000Z",
+      "sha256": "bdf56f46d94fd98c92011d02e3e825cd2df27ed8f424f7fbf911233f38617179",
+      "crc_verified": true
+    },
+    {
+      "key": "202207-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202207-divvy-tripdata.zip",
+      "size": 29511217,
+      "etag": "8c002ebdbbfb0edc6a075703becf9247-2",
+      "last_modified": "2022-08-05T22:27:33.000Z",
+      "sha256": "2cdd04c2ca1bf6795a94eb6fe7c43d8ed2c0527c7e34861d146402834cd46ff3",
+      "crc_verified": true
+    },
+    {
+      "key": "202208-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202208-divvy-tripdata.zip",
+      "size": 27127185,
+      "etag": "e6004ecc0bcf926c2c31d974a244f13a-2",
+      "last_modified": "2022-09-08T22:20:19.000Z",
+      "sha256": "f2f4a2f1d92c6becec2f116c5f058a03e5211140ec3c2e2ec75d3cad3390c095",
+      "crc_verified": true
+    },
+    {
+      "key": "202209-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202209-divvy-tripdata.zip",
+      "size": 25305434,
+      "etag": "c3f96a976a6d4f9f3afd64c9c3886217-2",
+      "last_modified": "2022-10-11T15:59:39.000Z",
+      "sha256": "1003123e7252bc2da0977b7dfe9f322627a4b5fb728d7c1d1305f628c18c6909",
+      "crc_verified": true
+    },
+    {
+      "key": "202210-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202210-divvy-tripdata.zip",
+      "size": 20078661,
+      "etag": "494d94b7ef63799a2d0619672a021f7a-2",
+      "last_modified": "2022-11-08T22:47:10.000Z",
+      "sha256": "031767bc42aa195463c6ff5794a2c704a7c840cf82c164d556f3bf0bcfcc27ef",
+      "crc_verified": true
+    },
+    {
+      "key": "202211-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202211-divvy-tripdata.zip",
+      "size": 12360710,
+      "etag": "18cc8bb11ca069b92cadc59901d17066",
+      "last_modified": "2022-12-05T18:17:32.000Z",
+      "sha256": "ebb6204b58afa41541232f16926c6aa294d6556a95067138da6cc4083372b88f",
+      "crc_verified": true
+    },
+    {
+      "key": "202212-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202212-divvy-tripdata.zip",
+      "size": 6746069,
+      "etag": "111a465d602a4a52f8147d2982a13f5c",
+      "last_modified": "2023-01-03T20:19:01.000Z",
+      "sha256": "c920790aee7b8d4b9dba5947d19498d08b48fd832c5cccf17c9496342dd800a8",
+      "crc_verified": true
+    },
+    {
+      "key": "202301-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202301-divvy-tripdata.zip",
+      "size": 6776711,
+      "etag": "9d7eeac61d737e017fd33856998aa65c",
+      "last_modified": "2023-02-07T19:58:38.000Z",
+      "sha256": "3829ce324ca42ac2da9803ea916b5ff5c5fbe60545093ceffd372f0ae014f42f",
+      "crc_verified": true
+    },
+    {
+      "key": "202302-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202302-divvy-tripdata.zip",
+      "size": 7081095,
+      "etag": "4da6b8b19f08c6a4150c49a8a9c32053",
+      "last_modified": "2023-03-07T22:28:12.000Z",
+      "sha256": "77544fd32f5788a3a57f9471dfa27cad630dc0dabcaf1225c02592ef8b61a9e0",
+      "crc_verified": true
+    },
+    {
+      "key": "202303-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202303-divvy-tripdata.zip",
+      "size": 10265597,
+      "etag": "98cd34dd5e0cacc00f0695b7b5bc021c",
+      "last_modified": "2023-04-06T20:38:59.000Z",
+      "sha256": "3ae4eb6cbaca940f1540cae96fdd6a3552421f835759c316cf2b786e0709d3f7",
+      "crc_verified": true
+    },
+    {
+      "key": "202304-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202304-divvy-tripdata.zip",
+      "size": 15398190,
+      "etag": "2823f262b184589b31e04a5a5b16cb81",
+      "last_modified": "2023-05-04T19:43:25.000Z",
+      "sha256": "d2a82f68c5883ba3a9ac42bfb9b7c17558895541469c0b9fbad5b6dcc3f3e954",
+      "crc_verified": true
+    },
+    {
+      "key": "202305-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202305-divvy-tripdata.zip",
+      "size": 23442906,
+      "etag": "fde45f27b7a2ec06da3e371e3c62d285-2",
+      "last_modified": "2023-06-08T22:17:13.000Z",
+      "sha256": "db7aa551017f32bed33e8420940473984e2063704fd060d061944d19622a386d",
+      "crc_verified": true
+    },
+    {
+      "key": "202306-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202306-divvy-tripdata.zip",
+      "size": 25661651,
+      "etag": "1ddfdb0ce7870e5f7eeacec67e9af3e6-2",
+      "last_modified": "2023-07-13T21:22:44.000Z",
+      "sha256": "8f640fa6f4ab1ffed8b1beafe77a9f35eb4fd9ede78dc92d87b6eb65d909c07c",
+      "crc_verified": true
+    },
+    {
+      "key": "202307-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202307-divvy-tripdata.zip",
+      "size": 28544756,
+      "etag": "ba6c166bf9580f19206779cb16293fec-2",
+      "last_modified": "2023-08-14T12:28:28.000Z",
+      "sha256": "07653d13221bcf34cf23c1f686b295ad0a12b18881bd21fe3b103d663e4fd02f",
+      "crc_verified": true
+    },
+    {
+      "key": "202308-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202308-divvy-tripdata.zip",
+      "size": 28649391,
+      "etag": "28978e1c05a960d20b6288279ee2bd10-2",
+      "last_modified": "2023-10-12T05:35:18.000Z",
+      "sha256": "c9f597ba538776cbb4d273c58110bb9e2e80a0b4a40f503d4eeed4d71514be0d",
+      "crc_verified": true
+    },
+    {
+      "key": "202309-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202309-divvy-tripdata.zip",
+      "size": 24894104,
+      "etag": "34ac0b42f90a23d313e7b34a8f8a2ae7-2",
+      "last_modified": "2023-10-12T05:35:18.000Z",
+      "sha256": "a9f243d07e3c128b5a872a6b75f253d7b3671180b99c1f7e667afa7884b21b12",
+      "crc_verified": true
+    },
+    {
+      "key": "202310-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202310-divvy-tripdata.zip",
+      "size": 19145928,
+      "etag": "3db172565a038398a6e9cd8dfe044f43-2",
+      "last_modified": "2023-11-13T16:38:10.000Z",
+      "sha256": "94f21c3c8aa2fd8df0f0338abbb897b49a5989efeb5336c8ff2e4c040552f468",
+      "crc_verified": true
+    },
+    {
+      "key": "202311-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202311-divvy-tripdata.zip",
+      "size": 13165411,
+      "etag": "af1e60148a489c910dc9687f7134b35d",
+      "last_modified": "2023-12-05T18:28:19.000Z",
+      "sha256": "4fe1b34d1530868f8798c798196a8e22816114d4e348fc3e130537d7d47445c3",
+      "crc_verified": true
+    },
+    {
+      "key": "202312-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202312-divvy-tripdata.zip",
+      "size": 8419815,
+      "etag": "ddeeab2d6668fe482553965334bf060f",
+      "last_modified": "2024-01-04T19:48:23.000Z",
+      "sha256": "6306b0611ad0243e42b6af6ba2710fc3bdce63ea1108f2166af4c5d306592c0b",
+      "crc_verified": true
+    },
+    {
+      "key": "202401-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202401-divvy-tripdata.zip",
+      "size": 5450495,
+      "etag": "7ea642c109ea17ea566a812cbb09ec76",
+      "last_modified": "2024-02-05T15:21:23.000Z",
+      "sha256": "1a4efaba66d1a7a6450cbb699a53de9ef7b0bb0879949117f294cd91839fc427",
+      "crc_verified": true
+    },
+    {
+      "key": "202402-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202402-divvy-tripdata.zip",
+      "size": 8455339,
+      "etag": "a90ad6dc1b4426a306b305a91b7cee64",
+      "last_modified": "2024-03-04T14:37:52.000Z",
+      "sha256": "2d983bec2e3e0d9b5218c0a8ac63d827018ef0006cf1f21b7f1d58b68052ae9a",
+      "crc_verified": true
+    },
+    {
+      "key": "202403-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202403-divvy-tripdata.zip",
+      "size": 10964676,
+      "etag": "cc024faae2dbece923aed05bc8ea95ab",
+      "last_modified": "2024-04-01T18:49:19.000Z",
+      "sha256": "f8e0b7eb42aabff4c18fee98371712e79820b56718d8c0247047385fd05d28a2",
+      "crc_verified": true
+    },
+    {
+      "key": "202404-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202404-divvy-tripdata.zip",
+      "size": 15413128,
+      "etag": "0f1a53e829f8762ce9d93d3aeebba5db",
+      "last_modified": "2024-05-06T20:29:41.000Z",
+      "sha256": "a0609d3835e8fa58def3330ac61a8e61f27cfabf852d30afc2ab756712e2fe8b",
+      "crc_verified": true
+    },
+    {
+      "key": "202405-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202405-divvy-tripdata.zip",
+      "size": 22817320,
+      "etag": "7eb87952cc8682b1ce6ce3bbee6b1be7-3",
+      "last_modified": "2024-06-26T15:23:09.000Z",
+      "sha256": "3231936efd3d7438522bf9332caabc111f216f3c933f5967d1d94b74c8ffe69b",
+      "crc_verified": true
+    },
+    {
+      "key": "202406-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202406-divvy-tripdata.zip",
+      "size": 28816235,
+      "etag": "f75e24f393872f14294e681c621b0b9d-2",
+      "last_modified": "2024-07-08T17:17:18.000Z",
+      "sha256": "283697cdea56224c2119a93683e7e95a03c5f9fa1bd749c39b97373b85672f78",
+      "crc_verified": true
+    },
+    {
+      "key": "202407-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202407-divvy-tripdata.zip",
+      "size": 29232600,
+      "etag": "454b693d03191af297d3b4e052dc3c97-2",
+      "last_modified": "2024-08-08T14:40:41.000Z",
+      "sha256": "a0c9c2453c9e1e071314780193b68bc502c53389136bd8e2f35b4254babe46ac",
+      "crc_verified": true
+    },
+    {
+      "key": "202408-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202408-divvy-tripdata.zip",
+      "size": 30062136,
+      "etag": "a341dadbbc02e1138aace1c7f9102483-2",
+      "last_modified": "2024-09-05T00:20:36.000Z",
+      "sha256": "91a8a24aaa3234a3b0b6363dd6158535a3dd65ae8c3e43443f830a5b8da7baae",
+      "crc_verified": true
+    },
+    {
+      "key": "202409-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202409-divvy-tripdata.zip",
+      "size": 31775154,
+      "etag": "f41932f75419f6eec1eae23d409e702b-2",
+      "last_modified": "2024-10-07T22:19:46.000Z",
+      "sha256": "39a7c546d7c2534b69ec8ccd6113a372a3c7999e41f7222848d99dd4c0eb3183",
+      "crc_verified": true
+    },
+    {
+      "key": "202410-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202410-divvy-tripdata.zip",
+      "size": 22713795,
+      "etag": "276a3304669a7d9db1751840fb17cff5-2",
+      "last_modified": "2024-11-05T13:41:57.000Z",
+      "sha256": "f58aa4dead420d60d7eabae0b31d135990024de107eb003b9670b04120d67767",
+      "crc_verified": true
+    },
+    {
+      "key": "202411-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202411-divvy-tripdata.zip",
+      "size": 13826814,
+      "etag": "2890bad70cf988ac8fd394d149d527f5",
+      "last_modified": "2024-12-04T13:25:18.000Z",
+      "sha256": "40e38c439d15129d4d285be79d596f3b32251a276fc2a96d1b75161b999325c2",
+      "crc_verified": true
+    },
+    {
+      "key": "202412-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202412-divvy-tripdata.zip",
+      "size": 6947835,
+      "etag": "947e5defe973bad1e26d6c0b3d1d50b0",
+      "last_modified": "2025-01-06T20:25:37.000Z",
+      "sha256": "62264ba830bf8e9fc1eaf05325afc4fff2cb2da67fbc352c0ca34b5408371f0e",
+      "crc_verified": true
+    },
+    {
+      "key": "202501-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202501-divvy-tripdata.zip",
+      "size": 5768519,
+      "etag": "d5ec8027647f12474f0a496e9edccb5d",
+      "last_modified": "2025-02-05T16:16:58.000Z",
+      "sha256": "ce7de5c55fddee608b4f2a29598e7ac263180ab891be4b3464861263f2246e76",
+      "crc_verified": true
+    },
+    {
+      "key": "202502-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202502-divvy-tripdata.zip",
+      "size": 5893220,
+      "etag": "8e172cadea2a4b63f4ad1005176e6829",
+      "last_modified": "2025-03-04T13:38:18.000Z",
+      "sha256": "8eef7df78ecb3464007ab65940b85cb7a3b1b1bbf6dd6bc61cdb385e4e7cea41",
+      "crc_verified": true
+    },
+    {
+      "key": "202503-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202503-divvy-tripdata.zip",
+      "size": 11039133,
+      "etag": "e5083ded15b983f33ab910218c2a8111",
+      "last_modified": "2025-04-04T21:12:56.000Z",
+      "sha256": "cf1f67cc5ee9fd287f2c3a85bc04c2c933be5668a7a5c674663885c49f09845a",
+      "crc_verified": true
+    },
+    {
+      "key": "202504-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202504-divvy-tripdata.zip",
+      "size": 15067543,
+      "etag": "9be1760a9bc4edb7000afa5fdd0ed0d1",
+      "last_modified": "2025-05-07T12:26:52.000Z",
+      "sha256": "bb81bde4a5629a70605f5aa76aefe9a0d37dd38fc8bda5f998d98a63de3095ac",
+      "crc_verified": true
+    },
+    {
+      "key": "202505-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202505-divvy-tripdata.zip",
+      "size": 20193533,
+      "etag": "d4293c1c275e1146522d8fd216469a5b-2",
+      "last_modified": "2025-06-04T11:53:25.000Z",
+      "sha256": "1fa953e6b8b14a5bc7ff2b248468485f69d32e272ebee3e1851e6cab4ac87020",
+      "crc_verified": true
+    },
+    {
+      "key": "202506-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202506-divvy-tripdata.zip",
+      "size": 26783328,
+      "etag": "4a273e63b5bf92f79af70ae5991e8ff8-2",
+      "last_modified": "2025-07-06T21:53:09.000Z",
+      "sha256": "b9edc5df22f92c46c9a7db24e0dffb78aaac4d62fbadbf62bc2ad63d95978d08",
+      "crc_verified": true
+    },
+    {
+      "key": "202507-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202507-divvy-tripdata.zip",
+      "size": 30091311,
+      "etag": "a23e06312c211094d96c3278f5d356e0-2",
+      "last_modified": "2025-08-05T17:51:23.000Z",
+      "sha256": "0113c49d4fef6cea81145d68dec763aa03830218cf1e4851d2e50a3cd825b48a",
+      "crc_verified": true
+    },
+    {
+      "key": "202508-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202508-divvy-tripdata.zip",
+      "size": 28841986,
+      "etag": "4a4269e2425bfe5f80595e2f4c3f07d1-2",
+      "last_modified": "2025-09-04T19:25:53.000Z",
+      "sha256": "d7f381f87b61ebe6e4f7b6e0c5784eeac7c16589e2982cfea36fa9e12a6a16bf",
+      "crc_verified": true
+    },
+    {
+      "key": "202509-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202509-divvy-tripdata.zip",
+      "size": 26181186,
+      "etag": "965f9f2f8ef0779f906e808fba0cc1d1-2",
+      "last_modified": "2025-10-06T12:09:10.000Z",
+      "sha256": "0335259c0d0810cda38ed3eee4f60646699b1212bd280785e3e5e364c1f2afcd",
+      "crc_verified": true
+    },
+    {
+      "key": "202510-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202510-divvy-tripdata.zip",
+      "size": 24605753,
+      "etag": "b57d3fe460157d254534160a3ba32429-2",
+      "last_modified": "2025-11-04T17:54:12.000Z",
+      "sha256": "1b01969507fb7e136f56c8bf8b586564ed93f0a80ae6ae5f5dcfda3396ff4177",
+      "crc_verified": true
+    },
+    {
+      "key": "202511-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202511-divvy-tripdata.zip",
+      "size": 13591801,
+      "etag": "7b9c8f431b8f778201dea6c3b5c77af2",
+      "last_modified": "2025-12-08T19:48:16.000Z",
+      "sha256": "7d873352d710a2c4a4190cbf83c6a9ceb1c21319b02de339578ef71f11587704",
+      "crc_verified": true
+    },
+    {
+      "key": "202512-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202512-divvy-tripdata.zip",
+      "size": 5701852,
+      "etag": "144f40228b09c359cdfe49774ba3b371",
+      "last_modified": "2026-01-05T16:27:34.000Z",
+      "sha256": "bd171dbffa690aec3024b3605b86ec5120706eebc9d9bff69358130c58faed9a",
+      "crc_verified": true
+    },
+    {
+      "key": "202601-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202601-divvy-tripdata.zip",
+      "size": 5907269,
+      "etag": "92a778635a31ac1ef0b1e54b49d40614",
+      "last_modified": "2026-02-04T14:43:59.000Z",
+      "sha256": "c72e49ced87ed20d4da4730c8905f007f78c771a68fbb5c2caf194fcaf5536ca",
+      "crc_verified": true
+    },
+    {
+      "key": "202602-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202602-divvy-tripdata.zip",
+      "size": 8201530,
+      "etag": "780b26d9845cd4b79f4f9f1d23baa5b4",
+      "last_modified": "2026-03-04T20:07:17.000Z",
+      "sha256": "daaccc57e08033a35ead6d0d3c0092d2857ef788bbd7c137d457b56d35b12061",
+      "crc_verified": true
+    },
+    {
+      "key": "202603-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202603-divvy-tripdata.zip",
+      "size": 13165409,
+      "etag": "75cb238e64c0951477a27ad2db48dcde",
+      "last_modified": "2026-04-03T18:52:43.000Z",
+      "sha256": "7553befd3f668bc37d40119984931f78fb870fe62cd1eb69479bb106b1d1038d",
+      "crc_verified": true
+    },
+    {
+      "key": "202604-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202604-divvy-tripdata.zip",
+      "size": 17068744,
+      "etag": "c502b2070dc71301b235a0bbd9633faf",
+      "last_modified": "2026-05-04T19:02:25.000Z",
+      "sha256": "af16f7c43ddcce1383dee15e83c7daa01ecab2346bf856b5333f8e61b6ce7f04",
+      "crc_verified": true
+    },
+    {
+      "key": "202605-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202605-divvy-tripdata.zip",
+      "size": 24934348,
+      "etag": "201e81378e4ba2580c92e7549a3ab594-2",
+      "last_modified": "2026-06-04T13:59:21.000Z",
+      "sha256": "880e4ff17b03e206ef8f06e5815fc6b520172bd6f0298682823007be99ce34b2",
+      "crc_verified": true
+    },
+    {
+      "key": "202606-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202606-divvy-tripdata.zip",
+      "size": 28468364,
+      "etag": "8eb6ef6b785866bc5d41a6094201a2dc-2",
+      "last_modified": "2026-07-06T14:21:54.000Z",
+      "sha256": "34bde1eddacef591664fa97495460fe33265078f4134f8b80f141f94d126cc01",
+      "crc_verified": true
+    },
+    {
+      "key": "202607-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202607-divvy-tripdata.zip",
+      "size": 32910286,
+      "etag": "cd991325ebcb9e7b83dfe320537a8ead-2",
+      "last_modified": "2026-08-05T20:43:02.000Z",
+      "sha256": "4e6bc8725a92f5e4cebb9b3592874b1cea85111f920f9db9cd607cf88ec1fd14",
+      "crc_verified": true
+    },
+    {
+      "key": "202608-divvy-tripdata.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/202608-divvy-tripdata.zip",
+      "size": 32611393,
+      "etag": "621eabfa67e82043ea9c6957a072425e-2",
+      "last_modified": "2026-09-09T17:32:24.000Z",
+      "sha256": "3f4de338ee56b1bee76ea310a42f790a2e88e062c3635638cd382582615b827f",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Stations_Trips_2013.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Stations_Trips_2013.zip",
+      "size": 14626914,
+      "etag": "c100d30f03e4d358c3f6603f611805c4",
+      "last_modified": "2020-01-24T16:07:43.000Z",
+      "sha256": "0ff51865f5deca751dd7c3f75318efaf3de04c6f8d1daef74eae43e917a934f9",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Stations_Trips_2014_Q1Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Stations_Trips_2014_Q1Q2.zip",
+      "size": 17997624,
+      "etag": "18b84bc29277f1dd2f757fe1cd5a8047-2",
+      "last_modified": "2020-01-24T16:07:40.000Z",
+      "sha256": "51b4b239df8d656e8854e4cfce1e0465849c09be6cdfab2b4c3b24051fa0eee5",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Stations_Trips_2014_Q3Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Stations_Trips_2014_Q3Q4.zip",
+      "size": 30838872,
+      "etag": "9ca6ee678824480335434b686aaf48f2-2",
+      "last_modified": "2020-01-24T16:07:40.000Z",
+      "sha256": "427282b37f7b338dd62ea2c90a929299cc01a9719848196db4c5f9b78a33a4b0",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2015-Q1Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2015-Q1Q2.zip",
+      "size": 22449725,
+      "etag": "2e4b05891aff6913e9819caf43572c18-2",
+      "last_modified": "2020-01-24T16:07:40.000Z",
+      "sha256": "079ec9352c0d5d841cdc5063afc4d345b3dba6fffb9c8caae4c3173bef5ea65c",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2015_Q3Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2015_Q3Q4.zip",
+      "size": 43624437,
+      "etag": "965c8ba274fdc7655f811d56ec71d7df-3",
+      "last_modified": "2020-01-24T16:07:40.000Z",
+      "sha256": "99ddc290751e21135d30e64fd15e5fb0ccdc2890e117561d6c509d14b2310a77",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2016_Q1Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2016_Q1Q2.zip",
+      "size": 30964697,
+      "etag": "05471344e26faa532129bba82490c9e1-2",
+      "last_modified": "2020-01-24T16:07:44.000Z",
+      "sha256": "73b918ec492d2e8f32f5eee17c5d050d603bc674f425051dd3906545ae16539c",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2016_Q3Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2016_Q3Q4.zip",
+      "size": 57215032,
+      "etag": "83b98adbcce5e245d39c041cce188b7a-4",
+      "last_modified": "2020-01-24T16:07:45.000Z",
+      "sha256": "56b6f8176af9ea3a1a3977aab59953d3dcfad191e98c0eba65952169012eaefe",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2017_Q1Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2017_Q1Q2.zip",
+      "size": 42028390,
+      "etag": "19dcb290c0295a6e18aa3bf2bf6565f8-3",
+      "last_modified": "2020-01-24T16:07:48.000Z",
+      "sha256": "3a121dfe9707228315e34448d34ccce8b96b6026e991012fff2cdaf54e70776a",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2017_Q3Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2017_Q3Q4.zip",
+      "size": 57495251,
+      "etag": "2958de039c43a02ba63e1e26fb593c6f-4",
+      "last_modified": "2020-01-24T16:07:50.000Z",
+      "sha256": "4817c4bb2e02d2ce3b05de1761815436da82d3758335318df2580205321efc85",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2018_Q1.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2018_Q1.zip",
+      "size": 10031818,
+      "etag": "61d1a258ecd2595ed764608c15f82b83",
+      "last_modified": "2020-01-24T16:07:56.000Z",
+      "sha256": "d2531e77db33f21b8cc81ef6be934367ee7c2e3b13d2980343f4abdc69f8ca68",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2018_Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2018_Q2.zip",
+      "size": 27175217,
+      "etag": "bc6b8507b5470c12368c1fc08147f03a-2",
+      "last_modified": "2020-01-24T16:07:57.000Z",
+      "sha256": "700cd2065eefb691b3936c10ca53e355c46dc79fc6d6596e7877e69f6f0b436c",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2018_Q3.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2018_Q3.zip",
+      "size": 38779477,
+      "etag": "249018f88c4a06106eef33a70acbdfb8-3",
+      "last_modified": "2020-01-24T16:08:00.000Z",
+      "sha256": "237b9684aa026f0e5ca61057e90498780835cd9d32e09c9f94e96f5c50a632c0",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2018_Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2018_Q4.zip",
+      "size": 16721104,
+      "etag": "99750d2b60e7a511e673ceaa7c291ddb",
+      "last_modified": "2020-01-24T16:08:05.000Z",
+      "sha256": "02b4025a8e6c311bd23adf0d8829a2051377ec0208f4c46f3fbbe3200aee53b6",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2019_Q1.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q1.zip",
+      "size": 9565886,
+      "etag": "39dbd712241f1e4f8ed792b78e1f1302",
+      "last_modified": "2021-11-08T22:05:26.000Z",
+      "sha256": "1f7973129797afd62b75da3ae2075145aa7c18226ef2a2a22892b6c388477d64",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2019_Q2.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q2.zip",
+      "size": 28718468,
+      "etag": "652056546f37ad0f2d4061eb2f939496-2",
+      "last_modified": "2021-11-08T22:06:12.000Z",
+      "sha256": "e380f629e46e93fa60ebd00577f2af50858a37998d4f43d61be243b224a9f148",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2019_Q3.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q3.zip",
+      "size": 42361393,
+      "etag": "fcd3f8a6678ebad736dc9b46da4977c4-3",
+      "last_modified": "2020-01-24T16:08:06.000Z",
+      "sha256": "5f4423f41ec7f4c004c55e05b9d510baaed25db63554c7df3da0879677f8f3da",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2019_Q4.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q4.zip",
+      "size": 18404594,
+      "etag": "64fea8850eab816a5bf56292a8e49938-2",
+      "last_modified": "2020-01-24T16:08:07.000Z",
+      "sha256": "71160ef9a5803f107547aa95791c842b409fdf99f2fbdfe137ea120bbb157004",
+      "crc_verified": true
+    },
+    {
+      "key": "Divvy_Trips_2020_Q1.zip",
+      "url": "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2020_Q1.zip",
+      "size": 15920655,
+      "etag": "a0fe9d87d4fac7f8bb8ff0863b5a9f5e",
+      "last_modified": "2020-05-27T00:17:43.000Z",
+      "sha256": "6b23117771218d1f11830535bb2544939c7fc3ad27499aff2318e4e72a98da64",
+      "crc_verified": true
+    }
+  ],
+  "download_seconds": 628.36
+}

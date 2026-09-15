@@ -1,0 +1,62 @@
+[
+  {
+    "station_key": "divvy_36dc5cff1dd7b1a5",
+    "station_name": "Field Museum",
+    "source_station_id": "97",
+    "source_station_name": "Museum Campus",
+    "trip_id": "6356",
+    "role": "start",
+    "event_at": "2013-06-28 14:57:00",
+    "archive": "Divvy_Stations_Trips_2013.zip",
+    "member": "Divvy_Stations_Trips_2013/Divvy_Trips_2013.csv",
+    "verified": true
+  },
+  {
+    "station_key": "divvy_a52492774ef17650",
+    "station_name": "Clinton St & Washington Blvd",
+    "source_station_id": "91",
+    "source_station_name": "Clinton St & Washington Blvd",
+    "trip_id": "3940",
+    "role": "start",
+    "event_at": "2013-06-27 01:06:00",
+    "archive": "Divvy_Stations_Trips_2013.zip",
+    "member": "Divvy_Stations_Trips_2013/Divvy_Trips_2013.csv",
+    "verified": true
+  },
+  {
+    "station_key": "divvy_b5bcf9f700e39d00",
+    "station_name": "Larrabee St & Kingsbury St 1",
+    "source_station_id": "48",
+    "source_station_name": "Larrabee St & Kingsbury St",
+    "trip_id": "3940",
+    "role": "end",
+    "event_at": "2013-06-27 09:46:00",
+    "archive": "Divvy_Stations_Trips_2013.zip",
+    "member": "Divvy_Stations_Trips_2013/Divvy_Trips_2013.csv",
+    "verified": true
+  },
+  {
+    "station_key": "divvy_69a6049fb0c4e745",
+    "station_name": "Ravenswood Ave & Sunnyside Ave",
+    "source_station_id": "CHI02406",
+    "source_station_name": "Ravenswood Ave & Sunnyside Ave",
+    "trip_id": "728F0194B2E41334",
+    "role": "end",
+    "event_at": "2026-08-26 11:42:55.212000",
+    "archive": "202608-divvy-tripdata.zip",
+    "member": "202608-divvy-tripdata.csv",
+    "verified": true
+  },
+  {
+    "station_key": "divvy_c1694f7fe6c7a7b0",
+    "station_name": "Ashland Ave & Addison St",
+    "source_station_id": "CHI02407",
+    "source_station_name": "Ashland Ave & Addison St",
+    "trip_id": "7DF0B5952220645C",
+    "role": "end",
+    "event_at": "2026-08-26 17:56:34.157000",
+    "archive": "202608-divvy-tripdata.zip",
+    "member": "202608-divvy-tripdata.csv",
+    "verified": true
+  }
+]
