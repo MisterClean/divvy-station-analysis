@@ -4,16 +4,32 @@ import argparse
 import hashlib
 import json
 import math
+import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
 from pathlib import Path
 
 FEED_URLS = {
-    "city": "https://data.cityofchicago.org/resource/bbyy-e7gq.json?$limit=10000&$order=id",
     "city_metadata": "https://data.cityofchicago.org/api/views/bbyy-e7gq.json",
+    "city": "https://data.cityofchicago.org/resource/bbyy-e7gq.json",
     "information": "https://gbfs.divvybikes.com/gbfs/en/station_information.json",
     "status": "https://gbfs.divvybikes.com/gbfs/en/station_status.json",
 }
+
+
+def city_query_url(metadata: dict) -> str:
+    """An ordered SoQL query omits computed fields unless explicitly selected."""
+    columns = [c["fieldName"] for c in metadata["columns"] if c.get("position", 0) >= 0]
+    if not columns:
+        raise ValueError("City metadata has no selectable columns")
+    query = urllib.parse.urlencode(
+        {
+            "$limit": "10000",
+            "$order": "id",
+            "$select": ",".join(f"`{name}`" for name in columns),
+        }
+    )
+    return FEED_URLS["city"] + "?" + query
 
 
 def validate_feeds(feeds: dict) -> None:
@@ -47,6 +63,8 @@ def refresh_feeds(directory: Path) -> dict:
     """Write content-addressed responses, publishing the manifest only after validation."""
     bodies, feeds, sources = {}, {}, {}
     for name, url in FEED_URLS.items():
+        if name == "city":
+            url = city_query_url(feeds["city_metadata"])
         with urllib.request.urlopen(url, timeout=60) as response:
             bodies[name] = response.read()
         feeds[name] = json.loads(bodies[name])

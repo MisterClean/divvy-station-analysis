@@ -1,7 +1,9 @@
 """Keep the city inventory intact while enriching only accepted reference joins."""
 
 import csv
+import io
 import json
+import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
@@ -9,7 +11,7 @@ import pytest
 
 from build_stations import write_csv
 from reconcile_stations import CURRENT_REFERENCE_FIELDS, build_current_stations
-from station_feeds import load_feeds
+from station_feeds import FEED_URLS, load_feeds, refresh_feeds
 
 
 def reference() -> dict:
@@ -86,6 +88,51 @@ def test_duplicate_reference_city_link_fails_instead_of_expanding_inventory() ->
 def test_city_schema_collision_fails_instead_of_overwriting_source_column() -> None:
     with pytest.raises(ValueError, match="schema conflicts"):
         build_current_stations([{"id": "0001", "source_ids": "city-owned-value"}], [], [])
+
+
+def test_download_explicitly_requests_computed_columns(tmp_path: Path, monkeypatch) -> None:
+    computed = ":@computed_region_example"
+    fields = ["id", "station_name", "latitude", "longitude", computed]
+    metadata = {
+        "columns": [{"fieldName": name, "position": i + 1} for i, name in enumerate(fields)]
+    }
+
+    def city_response(url: str, *, timeout: int) -> io.BytesIO:
+        if url == FEED_URLS["city_metadata"]:
+            return io.BytesIO(json.dumps(metadata).encode())
+        if url.startswith(FEED_URLS["city"] + "?"):
+            query = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+            assert query["$order"] == ["id"]
+            assert query["$select"] == [",".join(f"`{name}`" for name in fields)]
+            return io.BytesIO(
+                json.dumps(
+                    [
+                        {
+                            "id": "0001",
+                            "station_name": "Example",
+                            "latitude": "41.9",
+                            "longitude": "-87.65",
+                            computed: "27",
+                        }
+                    ]
+                ).encode()
+            )
+        if url == FEED_URLS["information"]:
+            return io.BytesIO(
+                json.dumps(
+                    {"data": {"stations": [{"station_id": "uuid", "lat": 41.9, "lon": -87.65}]}}
+                ).encode()
+            )
+        assert url == FEED_URLS["status"]
+        return io.BytesIO(b'{"data":{"stations":[{"station_id":"uuid"}]}}')
+
+    monkeypatch.setattr("station_feeds.urllib.request.urlopen", city_response)
+    manifest = refresh_feeds(tmp_path)
+    assert "$select" in urllib.parse.parse_qs(
+        urllib.parse.urlsplit(manifest["sources"]["city"]["url"]).query
+    )
+    feeds, _ = load_feeds(tmp_path)
+    assert feeds["city"][0][computed] == "27"
 
 
 def test_published_current_inventory_matches_city_snapshot_and_reference() -> None:

@@ -33,6 +33,15 @@ all source columns**, including status, docks, coordinates, `location`, and the
 computed-region columns. Missing source values remain blank. The `location` cell
 contains valid GeoJSON serialized as JSON text.
 
+Columns named `:@computed_region_*` are Socrata's automatically generated
+geographic lookup fields. They refer to historical/current ward polygons, ZIP
+areas, community areas, and census tracts. Their values are polygon feature IDs,
+not necessarily ward numbers or ZIP codes. `city_column_labels` and
+`city_column_populated_rows` in the reconciliation report describe each field.
+The downloader explicitly selects these fields: the city's ordered API query
+otherwise omits them even though they appear in its schema. A blank geographic
+field can still mean that the source has no matching polygon for that location.
+
 It adds these fields:
 
 | Added column | Meaning |

@@ -400,6 +400,17 @@ def reconcile(root: Path) -> dict:
             "reference_path": "data/processed/stations.csv",
             "rows": len(current_stations),
             "city_columns": city_fields,
+            "city_column_labels": {
+                c["fieldName"]: c["name"]
+                for c in feeds["city_metadata"]["columns"]
+                if c["fieldName"] in city_fields
+            },
+            "city_column_populated_rows": {
+                field: sum(
+                    row.get(field) is not None and row.get(field) != "" for row in feeds["city"]
+                )
+                for field in city_fields
+            },
             "matched": sum(row["reference_matched"] for row in current_stations),
             "unmatched": sum(not row["reference_matched"] for row in current_stations),
         },

@@ -1,33 +1,33 @@
 {
   "snapshot_sources": {
-    "city": {
-      "url": "https://data.cityofchicago.org/resource/bbyy-e7gq.json?$limit=10000&$order=id",
-      "retrieved_at": "2026-09-15T19:08:19.832014+00:00",
-      "path": "feeds/city-2886fbb783d36442.json",
-      "sha256": "2886fbb783d36442a47063f8d13c6286aca4b972834099126d7676da71ad622b"
-    },
     "city_metadata": {
       "url": "https://data.cityofchicago.org/api/views/bbyy-e7gq.json",
-      "retrieved_at": "2026-09-15T19:08:20.182780+00:00",
+      "retrieved_at": "2026-09-15T20:04:18.518153+00:00",
       "path": "feeds/city_metadata-1793a9b53cd441b3.json",
       "sha256": "1793a9b53cd441b318cdb3ff5caf42b150a71bb5ba9447868028d0b8a97337f0"
     },
+    "city": {
+      "url": "https://data.cityofchicago.org/resource/bbyy-e7gq.json?%24limit=10000&%24order=id&%24select=%60id%60%2C%60station_name%60%2C%60short_name%60%2C%60total_docks%60%2C%60docks_in_service%60%2C%60status%60%2C%60latitude%60%2C%60longitude%60%2C%60location%60%2C%60%3A%40computed_region_awaf_s7ux%60%2C%60%3A%40computed_region_6mkv_f3dw%60%2C%60%3A%40computed_region_vrxf_vc4k%60%2C%60%3A%40computed_region_bdys_3d7i%60%2C%60%3A%40computed_region_43wa_7qmu%60%2C%60%3A%40computed_region_rpca_8um6%60%2C%60%3A%40computed_region_8hcu_yrd4%60",
+      "retrieved_at": "2026-09-15T20:04:19.153684+00:00",
+      "path": "feeds/city-907c43e69c74c9e2.json",
+      "sha256": "907c43e69c74c9e22a6515783b376eb804b67a3d0e4d12b321677f880cdcef5b"
+    },
     "information": {
       "url": "https://gbfs.divvybikes.com/gbfs/en/station_information.json",
-      "retrieved_at": "2026-09-15T19:08:21.636820+00:00",
-      "path": "feeds/information-dcd115e2b16cc82f.json",
-      "sha256": "dcd115e2b16cc82fcdd492ed0f2bcc2b264a80d086b882f06e2311270ebd762c"
+      "retrieved_at": "2026-09-15T20:04:19.626349+00:00",
+      "path": "feeds/information-9edeb80e1896e21d.json",
+      "sha256": "9edeb80e1896e21df67fd06e7976e905694d84f39ca9a1f8e765c146f0f61c49"
     },
     "status": {
       "url": "https://gbfs.divvybikes.com/gbfs/en/station_status.json",
-      "retrieved_at": "2026-09-15T19:08:22.385787+00:00",
-      "path": "feeds/status-f9ee8f88b9d7025f.json",
-      "sha256": "f9ee8f88b9d7025f4399e46642d660e5628ce4f84066d7bd124a0fe2c07e50b3"
+      "retrieved_at": "2026-09-15T20:04:19.911140+00:00",
+      "path": "feeds/status-21c8b2e8fe63e85c.json",
+      "sha256": "21c8b2e8fe63e85c8b71847c52245b7d9b76e8572da3c72b31b051ad0b56b78b"
     }
   },
   "city_rows_updated_at": 1789471472,
-  "gbfs_information_updated_at": 1789499285,
-  "gbfs_status_updated_at": 1789499225,
+  "gbfs_information_updated_at": 1789502629,
+  "gbfs_status_updated_at": 1789502630,
   "city_status_counts": {
     "In Service": 1177,
     "Not In Service": 27,
@@ -84,6 +84,42 @@
       ":@computed_region_rpca_8um6",
       ":@computed_region_8hcu_yrd4"
     ],
+    "city_column_labels": {
+      "id": "ID",
+      "station_name": "Station Name",
+      "short_name": "Short Name",
+      "total_docks": "Total Docks",
+      "docks_in_service": "Docks in Service",
+      "status": "Status",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "location": "Location",
+      ":@computed_region_awaf_s7ux": "Historical Wards 2003-2015 2",
+      ":@computed_region_6mkv_f3dw": "Zip Codes 2",
+      ":@computed_region_vrxf_vc4k": "Community Areas 2",
+      ":@computed_region_bdys_3d7i": "Census Tracts 2",
+      ":@computed_region_43wa_7qmu": "Wards 2",
+      ":@computed_region_rpca_8um6": "Boundaries - ZIP Codes",
+      ":@computed_region_8hcu_yrd4": "Wards 2023-"
+    },
+    "city_column_populated_rows": {
+      "id": 1205,
+      "station_name": 1205,
+      "short_name": 1156,
+      "total_docks": 1205,
+      "docks_in_service": 1205,
+      "status": 1205,
+      "latitude": 1205,
+      "longitude": 1205,
+      "location": 1205,
+      ":@computed_region_awaf_s7ux": 1177,
+      ":@computed_region_6mkv_f3dw": 1205,
+      ":@computed_region_vrxf_vc4k": 1177,
+      ":@computed_region_bdys_3d7i": 1177,
+      ":@computed_region_43wa_7qmu": 1177,
+      ":@computed_region_rpca_8um6": 1177,
+      ":@computed_region_8hcu_yrd4": 1177
+    },
     "matched": 1168,
     "unmatched": 37
   },
