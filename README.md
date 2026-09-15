@@ -30,14 +30,26 @@ counts. Current feed fields describe the pinned snapshot, not historical status.
 `data/processed/current_stations.csv` is the city inventory left-joined to the
 published Chicago reference (`stations.csv`). It preserves **every city row and
 all source columns**, including status, docks, coordinates, `location`, and the
-computed-region columns. Missing source values remain blank. The `location` cell
-contains valid GeoJSON serialized as JSON text.
+computed-region columns with readable headers. Missing source values remain
+blank. The `location` cell contains valid GeoJSON serialized as JSON text.
 
-Columns named `:@computed_region_*` are Socrata's automatically generated
-geographic lookup fields. They refer to historical/current ward polygons, ZIP
-areas, community areas, and census tracts. Their values are polygon feature IDs,
-not necessarily ward numbers or ZIP codes. `city_column_labels` and
-`city_column_populated_rows` in the reconciliation report describe each field.
+Socrata's automatically generated `:@computed_region_*` geographic lookup fields
+use these stable, readable headers in the CSV and DuckDB table:
+
+| CSV column | Original city API field |
+|---|---|
+| `historical_ward_2003_2015_region_id` | `:@computed_region_awaf_s7ux` |
+| `zip_code_region_id` | `:@computed_region_6mkv_f3dw` |
+| `community_area_region_id` | `:@computed_region_vrxf_vc4k` |
+| `census_tract_region_id` | `:@computed_region_bdys_3d7i` |
+| `ward_region_id` | `:@computed_region_43wa_7qmu` |
+| `zip_code_boundary_region_id` | `:@computed_region_rpca_8um6` |
+| `ward_2023_region_id` | `:@computed_region_8hcu_yrd4` |
+
+Their values are polygon feature IDs, not necessarily ward numbers or ZIP codes.
+The raw feed snapshot keeps the original API names. `city_column_source_fields`,
+`city_column_labels`, and `city_column_populated_rows` in the reconciliation report
+record each exported field's source name, city label, and coverage.
 The downloader explicitly selects these fields: the city's ordered API query
 otherwise omits them even though they appear in its schema. A blank geographic
 field can still mean that the source has no matching polygon for that location.

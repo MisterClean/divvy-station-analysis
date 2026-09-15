@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 
 from build_stations import write_csv
-from reconcile_stations import CURRENT_REFERENCE_FIELDS, build_current_stations
+from reconcile_stations import CITY_COLUMN_ALIASES, CURRENT_REFERENCE_FIELDS, build_current_stations
 from station_feeds import FEED_URLS, load_feeds, refresh_feeds
 
 
@@ -38,6 +38,7 @@ def test_city_left_join_preserves_optional_columns_names_status_and_geojson(tmp_
             "location": location,
             "short_name": "CHI001",
             "total_docks": "15",
+            ":@computed_region_8hcu_yrd4": "0037",
         },
         {
             "id": "0002",
@@ -55,7 +56,7 @@ def test_city_left_join_preserves_optional_columns_names_status_and_geojson(tmp_
             "total_docks",
             "status",
             "location",
-            ":@computed_region_example",
+            ":@computed_region_8hcu_yrd4",
             "entirely_null_column",
         )
     ]
@@ -67,7 +68,10 @@ def test_city_left_join_preserves_optional_columns_names_status_and_geojson(tmp_
     assert rows[1]["reference_matched"] is False
     assert all(rows[1][field] is None for field in CURRENT_REFERENCE_FIELDS)
     assert rows[1]["status"] == "Not Installed"
-    assert "entirely_null_column" in fields and ":@computed_region_example" in fields
+    assert "entirely_null_column" in fields and "ward_2023_region_id" in fields
+    assert ":@computed_region_8hcu_yrd4" not in fields
+    assert rows[0]["ward_2023_region_id"] == "0037"
+    assert rows[1]["ward_2023_region_id"] is None
     assert rows[1]["new_city_column"] == "3.00"
     assert city[0]["location"] == location  # Source rows are not mutated.
     output = tmp_path / "current_stations.csv"
@@ -75,6 +79,7 @@ def test_city_left_join_preserves_optional_columns_names_status_and_geojson(tmp_
     with output.open(newline="", encoding="utf-8") as stream:
         actual = list(csv.DictReader(stream))
     assert actual[0]["id"] == "0001"
+    assert actual[0]["ward_2023_region_id"] == "0037"
     assert json.loads(actual[0]["location"]) == location
     assert actual[0]["station_first_trip_at"] == "2021-08-25 14:29:06"
     assert actual[1]["station_first_trip_at"] == ""
@@ -148,13 +153,18 @@ def test_published_current_inventory_matches_city_snapshot_and_reference() -> No
         reader = csv.DictReader(stream)
         actual = list(reader)
         assert reader.fieldnames is not None
-        assert {c["fieldName"] for c in feeds["city_metadata"]["columns"]} <= set(reader.fieldnames)
+        assert {
+            CITY_COLUMN_ALIASES.get(c["fieldName"], c["fieldName"])
+            for c in feeds["city_metadata"]["columns"]
+        } <= set(reader.fieldnames)
+        assert not any(field.startswith(":@") for field in reader.fieldnames)
     assert len(actual) == len(feeds["city"])
     assert len({r["id"] for r in actual}) == len(actual)
     for raw, row in zip(feeds["city"], actual, strict=True):
         for field, value in raw.items():
+            header = CITY_COLUMN_ALIASES.get(field, field)
             assert (
-                json.loads(row[field]) if isinstance(value, (dict, list)) else row[field]
+                json.loads(row[header]) if isinstance(value, (dict, list)) else row[header]
             ) == value
         match = reference_by_id.get(raw["id"])
         assert row["reference_matched"] == ("True" if match is not None else "False")

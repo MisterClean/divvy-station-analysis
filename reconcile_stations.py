@@ -13,6 +13,16 @@ from build_stations import distance, normalize_name, write_csv
 from profile_data import fetch_dicts, literal
 from station_feeds import load_feeds
 
+CITY_COLUMN_ALIASES: dict[str, str] = {
+    ":@computed_region_awaf_s7ux": "historical_ward_2003_2015_region_id",
+    ":@computed_region_6mkv_f3dw": "zip_code_region_id",
+    ":@computed_region_vrxf_vc4k": "community_area_region_id",
+    ":@computed_region_bdys_3d7i": "census_tract_region_id",
+    ":@computed_region_43wa_7qmu": "ward_region_id",
+    ":@computed_region_rpca_8um6": "zip_code_boundary_region_id",
+    ":@computed_region_8hcu_yrd4": "ward_2023_region_id",
+}
+
 CURRENT_REFERENCE_FIELDS = (
     "station_key",
     "station_first_trip_at",
@@ -32,19 +42,28 @@ def city_csv_value(value: object) -> object:
     return value
 
 
+def city_column_names(city: list[dict], columns: list[dict]) -> dict[str, str]:
+    """Map source fields to stable CSV headers, retaining optional and new fields."""
+    return {
+        field: CITY_COLUMN_ALIASES.get(field, field)
+        for field in (
+            [column["fieldName"] for column in columns if column.get("position", 0) >= 0]
+            + [field for row in city for field in row]
+        )
+    }
+
+
 def build_current_stations(
     city: list[dict], columns: list[dict], reference: list[dict]
 ) -> tuple[list[dict], list[str]]:
     """Left-join every city row to the published reference's accepted city ID link."""
-    city_fields = list(
-        dict.fromkeys(
-            [column["fieldName"] for column in columns if column.get("position", 0) >= 0]
-            + [field for row in city for field in row]
-        )
-    )
+    column_names = city_column_names(city, columns)
+    city_fields = list(column_names.values())
     added_fields = ["reference_matched", *CURRENT_REFERENCE_FIELDS]
     if set(city_fields) & set(added_fields):
         raise ValueError("City schema conflicts with added reference fields")
+    if len(set(city_fields)) != len(city_fields):
+        raise ValueError("City schema conflicts with readable column names")
     if len({row["id"] for row in city}) != len(city):
         raise ValueError("Duplicate city IDs would violate the current-stations grain")
     reference_by_city_id = {}
@@ -60,7 +79,10 @@ def build_current_stations(
         station = reference_by_city_id.get(raw["id"])
         rows.append(
             {
-                **{field: city_csv_value(raw.get(field)) for field in city_fields},
+                **{
+                    header: city_csv_value(raw.get(field))
+                    for field, header in column_names.items()
+                },
                 "reference_matched": station is not None,
                 **{
                     field: station[field] if station is not None else None
@@ -338,6 +360,7 @@ def reconcile(root: Path) -> dict:
                 f"CREATE OR REPLACE TABLE {name} AS SELECT * FROM read_csv({literal(str(source))}, header=true, sample_size=-1, types={types})"
             )
     matched_pairs = [(c["source"], c["feed_station_id"]) for c in accepted.values()]
+    column_names = city_column_names(feeds["city"], feeds["city_metadata"]["columns"])
     city_fields = current_fields[: -len(CURRENT_REFERENCE_FIELDS) - 1]
     chicago_index = {station["station_key"]: station for station in chicago}
     checks = {
@@ -352,9 +375,9 @@ def reconcile(root: Path) -> dict:
             len(current_stations) == len(feeds["city"])
             and len({r["id"] for r in current_stations}) == len(current_stations)
             and all(
-                row[field] == city_csv_value(raw.get(field))
+                row[header] == city_csv_value(raw.get(field))
                 for raw, row in zip(feeds["city"], current_stations, strict=True)
-                for field in city_fields
+                for field, header in column_names.items()
             )
         ),
         "current_stations_join_published_reference_exactly": all(
@@ -400,14 +423,15 @@ def reconcile(root: Path) -> dict:
             "reference_path": "data/processed/stations.csv",
             "rows": len(current_stations),
             "city_columns": city_fields,
+            "city_column_source_fields": {header: field for field, header in column_names.items()},
             "city_column_labels": {
-                c["fieldName"]: c["name"]
+                column_names[c["fieldName"]]: c["name"]
                 for c in feeds["city_metadata"]["columns"]
-                if c["fieldName"] in city_fields
+                if c["fieldName"] in column_names
             },
             "city_column_populated_rows": {
                 field: sum(
-                    row.get(field) is not None and row.get(field) != "" for row in feeds["city"]
+                    row.get(field) is not None and row.get(field) != "" for row in current_stations
                 )
                 for field in city_fields
             },
