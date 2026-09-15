@@ -68,7 +68,7 @@ def test_complete_pipeline_from_clean_directory(tmp_path: Path) -> None:
     with zipfile.ZipFile(archive, "w") as output:
         output.writestr(
             "fixture.csv",
-            "ride_id,started_at,ended_at,start_station_id,start_station_name,end_station_id,end_station_name,start_lat,start_lng,end_lat,end_lng\n0001,2020-01-01 10:00:00,2020-01-01 10:05:00,001,First station,002,Second station,41.88,-87.63,41.89,-87.63\n0002,2020-01-01 10:10:00,2020-01-01 10:15:00,002,Second station,001,First station,41.89,-87.63,41.88,-87.63\n",
+            "ride_id,started_at,ended_at,start_station_id,start_station_name,end_station_id,end_station_name,start_lat,start_lng,end_lat,end_lng\n0001,2020-01-01 10:00:00,2020-01-01 10:05:00,001,First station,002,Second station,41.88123,-87.63123,41.89123,-87.63123\n0002,2020-01-01 10:10:00,2020-01-01 10:15:00,002,Second station,001,First station,41.89123,-87.63123,41.88123,-87.63123\n",
         )
     body = archive.read_bytes()
     manifest = {
@@ -102,6 +102,11 @@ def test_complete_pipeline_from_clean_directory(tmp_path: Path) -> None:
         == "2020-01-01 10:05:00"
     )
     assert all(json.loads((tmp_path / "reports/validation.json").read_text())["checks"].values())
+    with (tmp_path / "data/processed/current_stations.csv").open(encoding="utf-8") as stream:
+        current_stations = list(csv.DictReader(stream))
+    assert current_stations
+    assert all(row["reference_matched"] == "False" for row in current_stations)
+    assert all(row["station_first_trip_at"] == "" for row in current_stations)
     readme = (tmp_path / "README.md").read_text()
     assert "candidate public station/location entities" in readme
     assert "(data/processed/stations.csv)" in readme

@@ -1,10 +1,42 @@
 {
-  "mode": "Complete pipeline with pinned local source ZIPs and an empty summary cache",
+  "mode": "Full source reprofile with PROFILE_VERSION 3, followed by a byte-identical offline rebuild using pinned trip archives and station feeds",
+  "profile_cache_version": 3,
   "source_archives": 95,
   "trip_rows": 57439268,
   "artifact": "data/processed/stations.csv",
-  "sha256": "ae878cf77976950cf24224d982c5d58990fbf751ea663e7a92ea2d612a16665c",
-  "byte_identical_to_clean_rebuild": true,
-  "full_dataset_checks_passed": 12,
-  "raw_source_spot_checks_passed": 5
+  "sha256": "dba1f3c5f245d45b9dd87064bef201dc12af592f61d9c2cff98836313a72a813",
+  "station_feed_manifest_sha256": "1b7c3ec4f08e47d967def9beeebd1772c28e4acfcb4e78cb3fdd267e1c7e128e",
+  "byte_identical_to_offline_rebuild": true,
+  "full_dataset_checks_passed": 18,
+  "raw_source_spot_checks_passed": 8,
+  "regression_tests_passed": 25,
+  "ruff_check_passed": true,
+  "ty_check_passed": true,
+  "current_stations_artifact": {
+    "path": "data/processed/current_stations.csv",
+    "reference_path": "data/processed/stations.csv",
+    "rows": 1205,
+    "city_columns": [
+      "id",
+      "station_name",
+      "short_name",
+      "total_docks",
+      "docks_in_service",
+      "status",
+      "latitude",
+      "longitude",
+      "location",
+      ":@computed_region_awaf_s7ux",
+      ":@computed_region_6mkv_f3dw",
+      ":@computed_region_vrxf_vc4k",
+      ":@computed_region_bdys_3d7i",
+      ":@computed_region_43wa_7qmu",
+      ":@computed_region_rpca_8um6",
+      ":@computed_region_8hcu_yrd4"
+    ],
+    "matched": 1168,
+    "unmatched": 37,
+    "sha256": "a558f8c5132155156c8efe53649082f97bdb354c5d063e7da45fa93a5d432740",
+    "byte_identical_to_offline_rebuild": true
+  }
 }

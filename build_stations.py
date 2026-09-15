@@ -14,6 +14,7 @@ from shapely.geometry import Point, shape
 from shapely.ops import unary_union
 
 from profile_data import fetch_dicts, literal
+from station_feeds import load_feeds
 
 MATCH_DISTANCE_METERS = 150
 
@@ -154,6 +155,50 @@ def enrich_coordinates(observations: list[dict], lookups: list[dict]) -> None:
             row["coordinate_source_archive"] = end["coordinate_source_archive"]
 
 
+def coarse_cell_contains(row: dict, anchor: tuple[float, float]) -> bool:
+    """Allow the ordinary matching tolerance around the entire rounding cell."""
+    if row.get("coarse_lat") is None or row.get("coordinate_count", 0) > 0:
+        return True
+    nearest = (
+        max(row["coarse_lat"] - 0.005, min(anchor[0], row["coarse_lat"] + 0.005)),
+        max(row["coarse_lon"] - 0.005, min(anchor[1], row["coarse_lon"] + 0.005)),
+    )
+    return distance(nearest, anchor) <= MATCH_DISTANCE_METERS
+
+
+def recover_feed_coordinates(observations: list[dict], feeds: dict) -> None:
+    """Locate coarse-only names using a unique exact feed name inside the rounded cell.
+
+    Never replace precise historical locations with today's coordinates. If a name has
+    any usable historical location, ordinary clustering handles it instead.
+    """
+    known_names = {r["name_key"] for r in observations if point(r) is not None}
+    catalog = {r["station_id"]: r for r in feeds["information"]["data"]["stations"]}
+    for row in feeds["city"]:
+        if row["id"] not in catalog:
+            catalog[row["id"]] = {
+                "name": row["station_name"],
+                "lat": float(row["latitude"]),
+                "lon": float(row["longitude"]),
+            }
+    by_name = defaultdict(list)
+    for row in catalog.values():
+        by_name[normalize_name(row["name"])].append(row)
+    for row in observations:
+        if row["name_key"] in known_names or row.get("coarse_lat") is None:
+            continue
+        candidates = by_name[row["name_key"]]
+        if len(candidates) != 1:
+            continue
+        candidate = candidates[0]
+        if not coarse_cell_contains(row, (candidate["lat"], candidate["lon"])):
+            continue
+        row["lat"], row["lon"] = candidate["lat"], candidate["lon"]
+        row["coordinate_source"] = "current_feed_exact_name_within_coarse_cell"
+        row["coordinate_source_archive"] = "data/reference/station_feeds.json"
+        row["coordinate_inferred"] = True
+
+
 def cluster_name(rows: list[dict]) -> list[dict]:
     """Greedy fixed-anchor clusters prevent transitive chains from merging distant stations."""
     located = [r for r in rows if point(r) is not None]
@@ -182,7 +227,11 @@ def cluster_name(rows: list[dict]) -> list[dict]:
             )
     for row in missing:
         matches = [
-            c for c in clusters if any(r["station_id"] == row["station_id"] for r in c["rows"])
+            c
+            for c in clusters
+            if c["anchor"] is not None
+            and coarse_cell_contains(row, c["anchor"])
+            and any(r["station_id"] == row["station_id"] for r in c["rows"])
         ]
         contemporaneous = [
             c
@@ -195,7 +244,12 @@ def cluster_name(rows: list[dict]) -> list[dict]:
         ]
         if len(contemporaneous) == 1:
             matches = contemporaneous
-        if len(matches) == 1 or (not matches and len(clusters) == 1):
+        if len(matches) == 1 or (
+            not matches
+            and len(clusters) == 1
+            and clusters[0]["anchor"] is not None
+            and coarse_cell_contains(row, clusters[0]["anchor"])
+        ):
             match = matches[0] if matches else clusters[0]
             row["coordinate_inferred"] = True
             match["rows"].append(row)
@@ -263,6 +317,10 @@ def summarize_cluster(cluster: dict, name_key: str, boundary, lookups: list[dict
         flags.append("historical_coordinates_matched_by_id")
     if any(r["coordinate_rejected"] for r in rows):
         flags.append("scattered_gps_rejected")
+    if any(r.get("coarse_coordinate_count", 0) > 0 for r in rows):
+        flags.append("coarse_trip_coordinates_not_used")
+    if any(r["coordinate_source"].startswith("current_feed_") for r in rows):
+        flags.append("location_inferred_from_current_feed")
     if any(r["name_recovered"] for r in rows):
         flags.append("missing_name_recovered")
     if len(ids) > 1:
@@ -274,7 +332,7 @@ def summarize_cluster(cluster: dict, name_key: str, boundary, lookups: list[dict
     # Explicit operational names; temporary public stations and public racks remain eligible.
     nonpublic = (
         re.search(
-            r"\b(test(?:ing)?|warehouse|repair|maintenance|bike.checking|divvy mobile|depot)\b|^base\b|^mtv\b|hubbard_test|hastings|chi.watson|map frame",
+            r"\b(test(?:ing)?|warehouse|repair|maintenance|bike.checking|divvy mobile|depot|private rack)\b|^base\b|^mtv\b|hubbard_test|hastings|chi.watson|map frame",
             name_key + " " + " ".join(ids).casefold(),
         )
         is not None
@@ -317,6 +375,7 @@ def summarize_cluster(cluster: dict, name_key: str, boundary, lookups: list[dict
         if nonpublic
         else ("public_rack" if "public rack" in name_key else "station"),
         "endpoint_count": count,
+        "coarse_coordinate_endpoint_count": sum(r.get("coarse_coordinate_count", 0) for r in rows),
         "source_id_count": len(ids),
         "source_ids": " | ".join(ids),
         "name_variants": " | ".join(raw_names),
@@ -327,7 +386,8 @@ def summarize_cluster(cluster: dict, name_key: str, boundary, lookups: list[dict
         "first_trip_member": first["member"],
         "coordinate_source": chosen["coordinate_source"] if chosen is not None else "missing",
         "coordinate_observed_month": chosen["last_at"].strftime("%Y-%m")
-        if chosen is not None and not chosen["coordinate_source"].startswith("historical_")
+        if chosen is not None
+        and not chosen["coordinate_source"].startswith(("historical_", "current_feed_"))
         else None,
         "coordinate_source_archive": chosen.get("coordinate_source_archive", chosen["archive"])
         if chosen is not None
@@ -474,6 +534,8 @@ def main() -> None:
     observations, lookups = read_inputs(profile)
     recover_names(observations)
     enrich_coordinates(observations, lookups)
+    feeds, _ = load_feeds(args.data_dir / "reference")
+    recover_feed_coordinates(observations, feeds)
     boundary_json = json.loads(
         (args.data_dir / "reference/chicago_boundary.geojson").read_text(encoding="utf-8")
     )
@@ -568,6 +630,10 @@ def main() -> None:
             "coordinate_source",
             "coordinate_dispersion_meters",
             "coordinate_rejected",
+            "coordinate_count",
+            "coarse_coordinate_count",
+            "coarse_lat",
+            "coarse_lon",
         ],
     )
     write_csv(

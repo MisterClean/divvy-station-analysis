@@ -1,0 +1,98 @@
+{
+  "snapshot_sources": {
+    "city": {
+      "url": "https://data.cityofchicago.org/resource/bbyy-e7gq.json?$limit=10000&$order=id",
+      "retrieved_at": "2026-09-15T19:08:19.832014+00:00",
+      "path": "feeds/city-2886fbb783d36442.json",
+      "sha256": "2886fbb783d36442a47063f8d13c6286aca4b972834099126d7676da71ad622b"
+    },
+    "city_metadata": {
+      "url": "https://data.cityofchicago.org/api/views/bbyy-e7gq.json",
+      "retrieved_at": "2026-09-15T19:08:20.182780+00:00",
+      "path": "feeds/city_metadata-1793a9b53cd441b3.json",
+      "sha256": "1793a9b53cd441b318cdb3ff5caf42b150a71bb5ba9447868028d0b8a97337f0"
+    },
+    "information": {
+      "url": "https://gbfs.divvybikes.com/gbfs/en/station_information.json",
+      "retrieved_at": "2026-09-15T19:08:21.636820+00:00",
+      "path": "feeds/information-dcd115e2b16cc82f.json",
+      "sha256": "dcd115e2b16cc82fcdd492ed0f2bcc2b264a80d086b882f06e2311270ebd762c"
+    },
+    "status": {
+      "url": "https://gbfs.divvybikes.com/gbfs/en/station_status.json",
+      "retrieved_at": "2026-09-15T19:08:22.385787+00:00",
+      "path": "feeds/status-f9ee8f88b9d7025f.json",
+      "sha256": "f9ee8f88b9d7025f4399e46642d660e5628ce4f84066d7bd124a0fe2c07e50b3"
+    }
+  },
+  "city_rows_updated_at": 1789471472,
+  "gbfs_information_updated_at": 1789499285,
+  "gbfs_status_updated_at": 1789499225,
+  "city_status_counts": {
+    "In Service": 1177,
+    "Not In Service": 27,
+    "Not Installed": 1
+  },
+  "gbfs_type_counts": {
+    "classic": 1156,
+    "lightweight": 897
+  },
+  "feed_coverage": [
+    {
+      "source": "city",
+      "rows": 1205,
+      "inside_chicago": 1177,
+      "matched": 1196,
+      "inside_chicago_matched": 1168
+    },
+    {
+      "source": "gbfs",
+      "rows": 2053,
+      "inside_chicago": 2014,
+      "matched": 2043,
+      "inside_chicago_matched": 2004
+    }
+  ],
+  "chicago_reference_match_status": {
+    "matched": 2004,
+    "no_confirmed_match": 203,
+    "needs_review": 54
+  },
+  "chicago_reference_types": {
+    "station": 1394,
+    "public_rack": 867
+  },
+  "current_stations_artifact": {
+    "path": "data/processed/current_stations.csv",
+    "reference_path": "data/processed/stations.csv",
+    "rows": 1205,
+    "city_columns": [
+      "id",
+      "station_name",
+      "short_name",
+      "total_docks",
+      "docks_in_service",
+      "status",
+      "latitude",
+      "longitude",
+      "location",
+      ":@computed_region_awaf_s7ux",
+      ":@computed_region_6mkv_f3dw",
+      ":@computed_region_vrxf_vc4k",
+      ":@computed_region_bdys_3d7i",
+      ":@computed_region_43wa_7qmu",
+      ":@computed_region_rpca_8um6",
+      ":@computed_region_8hcu_yrd4"
+    ],
+    "matched": 1168,
+    "unmatched": 37
+  },
+  "checks": {
+    "accepted_feed_matches_one_to_one": true,
+    "every_feed_row_accounted_for": true,
+    "no_fuzzy_only_matches_accepted": true,
+    "all_opening_dates_explicitly_unverified": true,
+    "current_stations_preserve_city_rows_and_columns": true,
+    "current_stations_join_published_reference_exactly": true
+  }
+}

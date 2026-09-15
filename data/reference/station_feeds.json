@@ -1,0 +1,28 @@
+{
+  "sources": {
+    "city": {
+      "url": "https://data.cityofchicago.org/resource/bbyy-e7gq.json?$limit=10000&$order=id",
+      "retrieved_at": "2026-09-15T19:08:19.832014+00:00",
+      "path": "feeds/city-2886fbb783d36442.json",
+      "sha256": "2886fbb783d36442a47063f8d13c6286aca4b972834099126d7676da71ad622b"
+    },
+    "city_metadata": {
+      "url": "https://data.cityofchicago.org/api/views/bbyy-e7gq.json",
+      "retrieved_at": "2026-09-15T19:08:20.182780+00:00",
+      "path": "feeds/city_metadata-1793a9b53cd441b3.json",
+      "sha256": "1793a9b53cd441b318cdb3ff5caf42b150a71bb5ba9447868028d0b8a97337f0"
+    },
+    "information": {
+      "url": "https://gbfs.divvybikes.com/gbfs/en/station_information.json",
+      "retrieved_at": "2026-09-15T19:08:21.636820+00:00",
+      "path": "feeds/information-dcd115e2b16cc82f.json",
+      "sha256": "dcd115e2b16cc82fcdd492ed0f2bcc2b264a80d086b882f06e2311270ebd762c"
+    },
+    "status": {
+      "url": "https://gbfs.divvybikes.com/gbfs/en/station_status.json",
+      "retrieved_at": "2026-09-15T19:08:22.385787+00:00",
+      "path": "feeds/status-f9ee8f88b9d7025f.json",
+      "sha256": "f9ee8f88b9d7025f4399e46642d660e5628ce4f84066d7bd124a0fe2c07e50b3"
+    }
+  }
+}

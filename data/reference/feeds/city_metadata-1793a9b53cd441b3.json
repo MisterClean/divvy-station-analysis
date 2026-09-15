@@ -1,0 +1,972 @@
+{
+  "id" : "bbyy-e7gq",
+  "name" : "Divvy Bicycle Stations",
+  "assetType" : "dataset",
+  "attribution" : "Divvy",
+  "attributionLink" : "https://gbfs.divvybikes.com/gbfs/2.3/gbfs.json",
+  "averageRating" : 0,
+  "category" : "Transportation",
+  "createdAt" : 1374184661,
+  "description" : "A list of the stations where one can pick up and return bicycles from the Divvy bicycle sharing system (http://divvybikes.com/).   This dataset contains all stations.  For a list of only those stations currently in service, see https://data.cityofchicago.org/d/67g3-8ig8. For real-time status of stations in machine-readable format, see https://gbfs.divvybikes.com/gbfs/gbfs.json.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 14976,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 40276387,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1702572626,
+  "publicationGroup" : 985352,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1789471472,
+  "rowsUpdatedBy" : "n9j5-zhen",
+  "tableId" : 19398629,
+  "totalTimesRated" : 0,
+  "viewCount" : 32716,
+  "viewLastModified" : 1774468494,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1450733616,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 5995930,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1450733616,
+    "targetAudience" : "public",
+    "workflowId" : 2226,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "vewm-vupz",
+      "displayName" : "Jonathan Levy"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 586874379,
+    "name" : "ID",
+    "dataTypeName" : "text",
+    "description" : "A unique station identifier. NOTE: Extremely long IDs may not display correctly on this page but should be correct if this dataset is exported or accessed through the API.",
+    "fieldName" : "id",
+    "position" : 1,
+    "renderTypeName" : "text",
+    "tableColumnId" : 150461303,
+    "width" : 190,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "ff21c158-de98-46c6-9ef7-7082bdb7c634",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2256465664725929896",
+        "count" : "1"
+      }, {
+        "item" : "2078379617704292706",
+        "count" : "1"
+      }, {
+        "item" : "2108022405953321550",
+        "count" : "1"
+      }, {
+        "item" : "a3a6c910-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3a81d33-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3aa8ca0-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3af5804-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3b4497a-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3b25b6d-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "2256173249550987254",
+        "count" : "1"
+      }, {
+        "item" : "a3a405a1-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "1975534406854476324",
+        "count" : "1"
+      }, {
+        "item" : "1879438378503419960",
+        "count" : "1"
+      }, {
+        "item" : "ad9f8858-dc27-43ca-8fdc-78044b22f1fc",
+        "count" : "1"
+      }, {
+        "item" : "1984107787514337392",
+        "count" : "1"
+      }, {
+        "item" : "1934290793283144612",
+        "count" : "1"
+      }, {
+        "item" : "2080586734933671976",
+        "count" : "1"
+      }, {
+        "item" : "a3b3634c-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3a79adb-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      }, {
+        "item" : "a3aff10c-a135-11e9-9cda-0a87ae2ba916",
+        "count" : "1"
+      } ],
+      "smallest" : "03a1610c-3ba0-4b85-b512-bc26791cb7ee",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : {
+      "precisionStyle" : "standard",
+      "noCommas" : "true",
+      "align" : "right",
+      "aggregate" : "count"
+    }
+  }, {
+    "id" : 586874380,
+    "name" : "Station Name",
+    "dataTypeName" : "text",
+    "fieldName" : "station_name",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 12310024,
+    "width" : 244,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "Yates Blvd & 93rd St",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Lavergne Ave & Diversey Ave",
+        "count" : "1"
+      }, {
+        "item" : "Lincoln Park Conservatory",
+        "count" : "1"
+      }, {
+        "item" : "Halsted St & Roscoe St",
+        "count" : "1"
+      }, {
+        "item" : "Keeler Ave & Carmen Ave",
+        "count" : "1"
+      }, {
+        "item" : "Mulligan Ave & Archer Ave",
+        "count" : "1"
+      }, {
+        "item" : "Throop St & 99th St",
+        "count" : "1"
+      }, {
+        "item" : "Oketo Ave & Addison St",
+        "count" : "1"
+      }, {
+        "item" : "Elizabeth St & 92nd St",
+        "count" : "1"
+      }, {
+        "item" : "Vernon Ave & 79th St",
+        "count" : "1"
+      }, {
+        "item" : "Elizabeth St & Randolph St",
+        "count" : "1"
+      }, {
+        "item" : "Mango Ave & Diversey Ave",
+        "count" : "1"
+      }, {
+        "item" : "Wood St & Cortland St",
+        "count" : "1"
+      }, {
+        "item" : "Racine Ave & Fullerton Ave",
+        "count" : "1"
+      }, {
+        "item" : "Racine Ave & Belmont Ave",
+        "count" : "1"
+      }, {
+        "item" : "Lakeview Ave & Fullerton Pkwy",
+        "count" : "1"
+      }, {
+        "item" : "Dearborn St & Erie St",
+        "count" : "1"
+      }, {
+        "item" : "Addison/Sheffield SE Corral",
+        "count" : "1"
+      }, {
+        "item" : "Albany Ave & Douglas Blvd",
+        "count" : "1"
+      }, {
+        "item" : "Western Ave & Congress Pkwy",
+        "count" : "1"
+      }, {
+        "item" : "Springfield Ave & 80th St",
+        "count" : "1"
+      } ],
+      "smallest" : "2112 W Peterson Ave",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : { }
+  }, {
+    "id" : 586874381,
+    "name" : "Short Name",
+    "dataTypeName" : "text",
+    "description" : "An alternative identifier used for some purposes.",
+    "fieldName" : "short_name",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 150461301,
+    "cachedContents" : {
+      "non_null" : "1156",
+      "largest" : "CHI02413",
+      "null" : "49",
+      "top" : [ {
+        "item" : "CHI00555",
+        "count" : "1"
+      }, {
+        "item" : "CHI00269",
+        "count" : "1"
+      }, {
+        "item" : "CHI00875",
+        "count" : "1"
+      }, {
+        "item" : "CHI00381",
+        "count" : "1"
+      }, {
+        "item" : "CHI00868",
+        "count" : "1"
+      }, {
+        "item" : "CHI00366",
+        "count" : "1"
+      }, {
+        "item" : "CHI00548",
+        "count" : "1"
+      }, {
+        "item" : "CHI00339",
+        "count" : "1"
+      }, {
+        "item" : "CHI00507",
+        "count" : "1"
+      }, {
+        "item" : "CHI00438",
+        "count" : "1"
+      }, {
+        "item" : "CHI00846",
+        "count" : "1"
+      }, {
+        "item" : "CHI00551",
+        "count" : "1"
+      }, {
+        "item" : "CHI02120",
+        "count" : "1"
+      }, {
+        "item" : "CHI00244",
+        "count" : "1"
+      }, {
+        "item" : "CHI01911",
+        "count" : "1"
+      }, {
+        "item" : "CHI00829",
+        "count" : "1"
+      }, {
+        "item" : "CHI00617",
+        "count" : "1"
+      }, {
+        "item" : "CHI00708",
+        "count" : "1"
+      }, {
+        "item" : "CHI00387",
+        "count" : "1"
+      }, {
+        "item" : "CHI02229",
+        "count" : "1"
+      } ],
+      "smallest" : "CHI00005",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : { }
+  }, {
+    "id" : 586874382,
+    "name" : "Total Docks",
+    "dataTypeName" : "number",
+    "description" : "Total docks in the station.  Each dock can accommodate one bicycle.",
+    "fieldName" : "total_docks",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 12310026,
+    "width" : 190,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "120",
+      "null" : "0",
+      "top" : [ {
+        "item" : "15",
+        "count" : "429"
+      }, {
+        "item" : "11",
+        "count" : "229"
+      }, {
+        "item" : "8",
+        "count" : "99"
+      }, {
+        "item" : "19",
+        "count" : "90"
+      }, {
+        "item" : "7",
+        "count" : "62"
+      }, {
+        "item" : "16",
+        "count" : "50"
+      }, {
+        "item" : "23",
+        "count" : "45"
+      }, {
+        "item" : "24",
+        "count" : "27"
+      }, {
+        "item" : "27",
+        "count" : "19"
+      }, {
+        "item" : "12",
+        "count" : "16"
+      }, {
+        "item" : "120",
+        "count" : "14"
+      }, {
+        "item" : "31",
+        "count" : "13"
+      }, {
+        "item" : "30",
+        "count" : "12"
+      }, {
+        "item" : "6",
+        "count" : "11"
+      }, {
+        "item" : "20",
+        "count" : "10"
+      }, {
+        "item" : "39",
+        "count" : "8"
+      }, {
+        "item" : "14",
+        "count" : "8"
+      }, {
+        "item" : "18",
+        "count" : "6"
+      }, {
+        "item" : "28",
+        "count" : "5"
+      }, {
+        "item" : "42",
+        "count" : "5"
+      } ],
+      "smallest" : "3",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : {
+      "precisionStyle" : "standard",
+      "noCommas" : "false",
+      "align" : "right",
+      "aggregate" : "sum"
+    }
+  }, {
+    "id" : 586874383,
+    "name" : "Docks in Service",
+    "dataTypeName" : "number",
+    "description" : "Excludes docks taken out of service.  Calculated as the number of docks reported as containing available bicycles or available to receive a returned bicycle, as of the time this dataset was refreshed.",
+    "fieldName" : "docks_in_service",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 12310027,
+    "width" : 190,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "120",
+      "null" : "0",
+      "top" : [ {
+        "item" : "15",
+        "count" : "384"
+      }, {
+        "item" : "11",
+        "count" : "215"
+      }, {
+        "item" : "19",
+        "count" : "83"
+      }, {
+        "item" : "8",
+        "count" : "78"
+      }, {
+        "item" : "7",
+        "count" : "71"
+      }, {
+        "item" : "14",
+        "count" : "47"
+      }, {
+        "item" : "23",
+        "count" : "43"
+      }, {
+        "item" : "16",
+        "count" : "38"
+      }, {
+        "item" : "24",
+        "count" : "22"
+      }, {
+        "item" : "6",
+        "count" : "22"
+      }, {
+        "item" : "27",
+        "count" : "21"
+      }, {
+        "item" : "10",
+        "count" : "20"
+      }, {
+        "item" : "13",
+        "count" : "16"
+      }, {
+        "item" : "120",
+        "count" : "14"
+      }, {
+        "item" : "31",
+        "count" : "13"
+      }, {
+        "item" : "12",
+        "count" : "12"
+      }, {
+        "item" : "20",
+        "count" : "10"
+      }, {
+        "item" : "18",
+        "count" : "10"
+      }, {
+        "item" : "30",
+        "count" : "10"
+      }, {
+        "item" : "9",
+        "count" : "7"
+      } ],
+      "smallest" : "3",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : {
+      "precisionStyle" : "standard",
+      "noCommas" : "false",
+      "align" : "right",
+      "aggregate" : "sum"
+    }
+  }, {
+    "id" : 586874384,
+    "name" : "Status",
+    "dataTypeName" : "text",
+    "description" : "The status of the station.  Stations \"In Service\" are available for use.",
+    "fieldName" : "status",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 12310028,
+    "width" : 190,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "Not Installed",
+      "null" : "0",
+      "top" : [ {
+        "item" : "In Service",
+        "count" : "1177"
+      }, {
+        "item" : "Not In Service",
+        "count" : "27"
+      }, {
+        "item" : "Not Installed",
+        "count" : "1"
+      } ],
+      "smallest" : "In Service",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 586874385,
+    "name" : "Latitude",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "latitude",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 12310029,
+    "width" : 190,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "42.064854",
+      "null" : "0",
+      "top" : [ {
+        "item" : "41.917805",
+        "count" : "2"
+      }, {
+        "item" : "41.90192",
+        "count" : "2"
+      }, {
+        "item" : "41.93266",
+        "count" : "2"
+      }, {
+        "item" : "41.77987",
+        "count" : "2"
+      }, {
+        "item" : "41.88672",
+        "count" : "2"
+      }, {
+        "item" : "41.9406",
+        "count" : "2"
+      }, {
+        "item" : "41.90689",
+        "count" : "2"
+      }, {
+        "item" : "41.89962",
+        "count" : "2"
+      }, {
+        "item" : "41.8836016573",
+        "count" : "1"
+      }, {
+        "item" : "41.88481",
+        "count" : "1"
+      }, {
+        "item" : "41.9495327",
+        "count" : "1"
+      }, {
+        "item" : "41.73793",
+        "count" : "1"
+      }, {
+        "item" : "41.8378",
+        "count" : "1"
+      }, {
+        "item" : "41.890028",
+        "count" : "1"
+      }, {
+        "item" : "41.7868405",
+        "count" : "1"
+      }, {
+        "item" : "41.744123",
+        "count" : "1"
+      }, {
+        "item" : "41.90958",
+        "count" : "1"
+      }, {
+        "item" : "41.79962",
+        "count" : "1"
+      }, {
+        "item" : "41.764354",
+        "count" : "1"
+      }, {
+        "item" : "41.7793811423",
+        "count" : "1"
+      } ],
+      "smallest" : "41.6485007627",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : { }
+  }, {
+    "id" : 586874386,
+    "name" : "Longitude",
+    "dataTypeName" : "number",
+    "fieldName" : "longitude",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 12310030,
+    "width" : 149,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "largest" : "-87.52823174",
+      "null" : "0",
+      "top" : [ {
+        "item" : "-87.66983",
+        "count" : "2"
+      }, {
+        "item" : "-87.68198",
+        "count" : "2"
+      }, {
+        "item" : "-87.653449",
+        "count" : "2"
+      }, {
+        "item" : "-87.6547",
+        "count" : "2"
+      }, {
+        "item" : "-87.625813",
+        "count" : "2"
+      }, {
+        "item" : "-87.74783",
+        "count" : "1"
+      }, {
+        "item" : "-87.6542225",
+        "count" : "1"
+      }, {
+        "item" : "-87.6958108",
+        "count" : "1"
+      }, {
+        "item" : "-87.628214",
+        "count" : "1"
+      }, {
+        "item" : "-87.6228439808",
+        "count" : "1"
+      }, {
+        "item" : "-87.654372",
+        "count" : "1"
+      }, {
+        "item" : "-87.6194107533",
+        "count" : "1"
+      }, {
+        "item" : "-87.63374",
+        "count" : "1"
+      }, {
+        "item" : "-87.68864",
+        "count" : "1"
+      }, {
+        "item" : "-87.58748",
+        "count" : "1"
+      }, {
+        "item" : "-87.66402",
+        "count" : "1"
+      }, {
+        "item" : "-87.649993",
+        "count" : "1"
+      }, {
+        "item" : "-87.6866316818",
+        "count" : "1"
+      }, {
+        "item" : "-87.71783",
+        "count" : "1"
+      }, {
+        "item" : "-87.5662761927",
+        "count" : "1"
+      } ],
+      "smallest" : "-87.83674",
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : { }
+  }, {
+    "id" : 586874387,
+    "name" : "Location",
+    "dataTypeName" : "point",
+    "description" : "",
+    "fieldName" : "location",
+    "position" : 9,
+    "renderTypeName" : "point",
+    "tableColumnId" : 150461302,
+    "cachedContents" : {
+      "non_null" : "1205",
+      "null" : "0",
+      "top" : [ {
+        "item" : {
+          "coordinates" : [ -87.6494219288, 41.9105780349 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.673055, 41.746534 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.674226, 41.968445 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.716755, 41.914166 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.699617, 42.02365 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.639767, 41.882409 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.67489, 41.9918 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.76124, 41.93104 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.6531716, 41.9473827 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.646602988243, 41.853779810727 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.67070800066, 41.684595072026 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.629912, 41.898969 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.73934, 41.93179 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.53043115139, 41.691773851168 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.634774, 41.779835 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.71104, 41.80095 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.626797556877, 41.831036314016 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.608218, 41.838556 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.71057, 41.78589 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      }, {
+        "item" : {
+          "coordinates" : [ -87.765469, 41.887664 ],
+          "type" : "Point"
+        },
+        "count" : "1"
+      } ],
+      "count" : "1205",
+      "cardinality" : "1205"
+    },
+    "format" : { }
+  }, {
+    "id" : 586874388,
+    "name" : "Historical Wards 2003-2015 2",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Historical Wards 2003-2015' (awaf-s7ux) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_awaf_s7ux",
+    "position" : 19,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461304,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_awaf-s7ux",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874389,
+    "name" : "Zip Codes 2",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Zip Codes' (6mkv-f3dw) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_6mkv_f3dw",
+    "position" : 20,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461305,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_6mkv-f3dw",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874390,
+    "name" : "Community Areas 2",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Community Areas' (vrxf-vc4k) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_vrxf_vc4k",
+    "position" : 21,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461306,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_vrxf-vc4k",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874391,
+    "name" : "Census Tracts 2",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Census Tracts' (bdys-3d7i) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_bdys_3d7i",
+    "position" : 22,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461307,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_bdys-3d7i",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874392,
+    "name" : "Wards 2",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Wards' (43wa-7qmu) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_43wa_7qmu",
+    "position" : 23,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461308,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_43wa-7qmu",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874393,
+    "name" : "Boundaries - ZIP Codes",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Boundaries - ZIP Codes' (rpca-8um6) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_rpca_8um6",
+    "position" : 24,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461309,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_rpca-8um6",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  }, {
+    "id" : 586874394,
+    "name" : "Wards 2023-",
+    "dataTypeName" : "number",
+    "description" : "This column was automatically created in order to record in what polygon from the dataset 'Wards 2023-' (8hcu-yrd4) the point in column 'location_1' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+    "fieldName" : ":@computed_region_8hcu_yrd4",
+    "position" : 25,
+    "renderTypeName" : "number",
+    "tableColumnId" : 150461310,
+    "computationStrategy" : {
+      "source_columns" : [ "location" ],
+      "type" : "georegion_match_on_point",
+      "parameters" : {
+        "region" : "_8hcu-yrd4",
+        "primary_key" : "_feature_id"
+      }
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Metadata" : {
+        "Time Period" : "Current",
+        "Changes and Other Historical Information Useful to Understanding This Dataset" : "https://www.google.com/search?q=site:data.cityofchicago.org/stories+\"Related+dataset+ID+s\"+\"bbyy-e7gq\"",
+        "Frequency" : "Daily",
+        "Data Owner" : "City of Chicago"
+      }
+    },
+    "rowLabel" : "Station",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "vewm-vupz",
+    "displayName" : "Jonathan Levy",
+    "screenName" : "Jonathan Levy",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "vewm-vupz",
+    "displayName" : "Jonathan Levy",
+    "screenName" : "Jonathan Levy",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "bicycling", "sustainability", "transportation", "divvy" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

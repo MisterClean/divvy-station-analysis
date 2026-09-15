@@ -10,6 +10,7 @@ import urllib.request
 from pathlib import Path
 
 from readme import update_readme
+from station_feeds import load_feeds
 
 
 def ensure_boundary(root: Path, *, offline: bool) -> None:
@@ -40,6 +41,7 @@ def run_pipeline(root: Path, *, workers: int, refresh: bool, offline: bool) -> N
     if refresh and offline:
         raise ValueError("refresh and offline cannot be combined")
     ensure_boundary(root, offline=offline)
+    load_feeds(root / "data/reference")
     download_args = ["--workers", str(workers)]
     if refresh:
         download_args.append("--refresh")
@@ -49,6 +51,7 @@ def run_pipeline(root: Path, *, workers: int, refresh: bool, offline: bool) -> N
         ("download.py", download_args),
         ("profile_data.py", []),
         ("build_stations.py", []),
+        ("reconcile_stations.py", []),
         ("report.py", []),
         ("verify_sources.py", []),
     ]

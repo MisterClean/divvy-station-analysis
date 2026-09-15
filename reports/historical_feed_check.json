@@ -1,0 +1,12 @@
+{
+  "metadata_url": "https://data.cityofchicago.org/api/views/eq45-8inv.json",
+  "latest_timestamp_query_url": "https://data.cityofchicago.org/resource/eq45-8inv.json?%24select=timestamp&%24order=timestamp+DESC&%24limit=1",
+  "retrieved_at": "2026-09-15T19:19:14.610428+00:00",
+  "response": [
+    {
+      "timestamp": "2022-09-10T18:25:43.000"
+    }
+  ],
+  "description": "<b>This dataset is no longer updated and is historical-only.</b>\n\nHistorical availability of bicycles and docks to return bicycles at the Divvy stations (http://divvybikes.com/).  For the current list of stations, see https://data.cityofchicago.org/d/bbyy-e7gq For real-time status of stations in machine-readable format, see https://feeds.divvybikes.com/stations/stations.json.\n\nDue to a change in the data source, discussed at http://dev.cityofchicago.org/open%20data/data%20portal/2019/07/10/divvy-datasets-frozen.html, records between 7/7/2019 and 12/9/2019 are missing.",
+  "interpretation": "Historical-only feed; its latest timestamp predates 2023. No historical first-in-service aggregate was computed."
+}

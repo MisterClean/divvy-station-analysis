@@ -8,6 +8,10 @@ data/*.duckdb*
 # Publish the small derived station artifact; all other generated data stays local.
 data/processed/*
 !data/processed/stations.csv
+!data/processed/current_stations.csv
+!data/processed/stations_unlocated.csv
+!data/processed/current_feed_coverage.csv
+!data/processed/current_feed_candidates.csv
 *.zip
 *.part
 *.tmp

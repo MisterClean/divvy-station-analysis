@@ -2,9 +2,22 @@
 
 ## Result
 
-The complete archive scan produced **3,389 candidate public station/location entities within Chicago**, including **1,422 public racks**. Download the main table at [stations.csv](../data/processed/stations.csv). It contains the requested station ID, name, longitude, latitude and first-trip timestamp, plus identity, provenance and quality fields.
+The complete archive scan produced **2,261 candidate public station/location entities within Chicago**, including **867 public racks**. Download the main table at [stations.csv](../data/processed/stations.csv). It contains the requested station ID, name, longitude, latitude and first-trip timestamp, plus identity, provenance and quality fields.
 
-This is a reproducible, conservative reference, not a certified opening-date register. A station may open before its first published trip. Name changes with weak evidence and moves over 150 metres can remain separate entities. **569 Chicago rows have fewer than 10 qualifying endpoints.** Use the quality flags and review table before treating the row count as a count of distinct physical installations.
+This is a reproducible, conservative reference, not a certified opening-date register. A station may open before its first published trip. Name changes with weak evidence and moves over 150 metres can remain separate entities. **89 Chicago rows have fewer than 10 qualifying endpoints.** Use the quality flags and review table before treating the row count as a count of distinct physical installations.
+
+## Current-feed comparison
+
+Pinned feed snapshot: 2026-09-15. The city inventory includes stations outside Chicago and stations not currently in service. The operator feed additionally covers many public racks. These are current inventories, not complete lifetime station registers.
+
+| Source | Feed rows | Inside Chicago | Inside Chicago with matched history |
+|---|---:|---:|---:|
+| city | 1,205 | 1,177 | 1,168 |
+| gbfs | 2,053 | 2,014 | 2,004 |
+
+See the [row-level coverage](../data/processed/current_feed_coverage.csv), [matching evidence](../data/processed/current_feed_candidates.csv) and [snapshot provenance and checks](feed_reconciliation.json). Current service status is separate from a historical opening date. `station_type` is a name-based historical classification; `gbfs_station_type` retains the operator's current category where matched.
+
+The [current city stations artifact](../data/processed/current_stations.csv) preserves all 1,205 city rows and every source column. It adds `reference_matched` and the requested first-trip/history fields, plus the reference key and date-review context. 1,168 rows join to the published Chicago reference; 37 remain unmatched with blank history fields. Unlike the broader system coverage above, this artifact only joins to records in `stations.csv`.
 
 ## Coverage and download
 
@@ -59,19 +72,20 @@ No CSV parse errors were silently skipped: parsing is strict and all columns are
 
 The duplicate-ID check is within each source file. The pipeline also detects byte-identical CSV/XLSX members by SHA-256. It does not globally deduplicate individual trips across files; counts are **source-record counts**, while duplicates do not change minimum dates. There are 0 byte-identical member copies excluded from aggregation.
 
-Trips with end time before start time are excluded from first-date estimates; zero-duration trips are retained as published observations. Both arrival and departure events count. In **2,215 Chicago entities**, the first arrival precedes the first departure. Source timestamps are preserved as timezone-naive local clock readings; early README files call them CST, but the archives do not encode offsets. No UTC or daylight-saving interpretation is invented.
+Trips with end time before start time are excluded from first-date estimates; zero-duration trips are retained as published observations. Both arrival and departure events count. In **1,437 Chicago entities**, the first arrival precedes the first departure. Source timestamps are preserved as timezone-naive local clock readings; early README files call them CST, but the archives do not encode offsets. No UTC or daylight-saving interpretation is invented.
 
 ## Identity and coordinate rules
 
 1. Normalize whitespace and case for matching; remove only trailing `(Temp)` and `(*)` display suffixes. Preserve direction, street numbers, rack prefixes and other meaningful name content.
 2. Recover legacy coordinates from same-ID/name station catalogs whose coordinates agree within 150 m. A legacy-only ID match is also allowed when all catalog coordinates for that ID agree within 150 m; it is flagged.
-3. Modern coordinates are per-file, per-name/ID/endpoint medians. Reject coordinate summaries whose 5th-to-95th percentile diagonal exceeds 300 m. Reject points outside a broad Chicago-region sanity box (41.4–42.3 latitude, −88.1–−87.3 longitude).
+3. Modern coordinates are per-file, per-name/ID/endpoint medians of valid trips. Points with both latitude and longitude on a two-decimal grid are retained as trip/date evidence but excluded from precise location summaries. Reject coordinate summaries whose 5th-to-95th percentile diagonal exceeds 300 m and points outside the Chicago-region sanity box (41.4–42.3 latitude, −88.1–−87.3 longitude).
 4. When available, use a consistent same-file arrival median with at least three coordinates to locate the corresponding departure observations. Departure GPS can be widely scattered even when a station name is present.
-5. Cluster exact normalized names around fixed anchors within 150 m. Fixed anchors prevent transitive chains from joining far-apart locations. Missing historical coordinates attach only to an unambiguous ID/name cluster, prioritizing the same archive; ambiguous groups remain unlocated.
-6. Merge different names only when they share a source ID, have the same station/rack classification, and all representative locations in the merged group are within 35 m. 131 links were accepted; every link is saved in `accepted_alias_merges.csv`. This is a heuristic, not an official ID crosswalk.
-7. Choose the latest observed named source ID and display name. `station_key` identifies the resolved entity; raw `station_id` is **not a unique historical key**. There are 2,867 distinct selected source IDs among 3,389 Chicago rows. Keys are deterministic for the same snapshot and rules but can change after future data or matching changes.
+5. Cluster exact normalized names around fixed anchors within 150 m. Fixed anchors prevent transitive chains from joining far-apart locations. Missing coordinates attach only to an unambiguous ID/name cluster, prioritizing the same archive. Coarse-only observations must agree with the rounding cell plus the same 150 m matching tolerance. Ambiguous groups remain unlocated. A name with no usable historical coordinates can use a unique exact current-feed name within that area; such inference is explicitly flagged.
+6. Merge different names only when they share a source ID, have the same station/rack classification, and all representative locations in the merged group are within 35 m. 118 links were accepted; every link is saved in `accepted_alias_merges.csv`. This is a heuristic, not an official ID crosswalk.
+7. Choose the latest observed named source ID and display name. `station_key` identifies the resolved entity; raw `station_id` is **not a unique historical key**. There are 2,217 distinct selected source IDs among 2,261 Chicago rows. Keys are deterministic for the same snapshot and rules but can change after future data or matching changes.
 8. Choose coordinates from a well-supported arrival summary in the latest eligible month, falling back to other usable observations or catalog coordinates. Coordinates describe that representative observed location, not necessarily the exact location at the first trip.
-9. Filter public locations using the [City of Chicago boundary](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-City/qqq8-j68g). Operational/test/depot names and IDs are retained in the all-entities table and excluded from the city reference. Public racks and temporary public stations remain included.
+9. Filter public locations using the [City of Chicago boundary](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-City/qqq8-j68g). Operational/test/depot/private-rack names and IDs are retained in the all-entities table and excluded from the city reference. Public racks and temporary public stations remain included.
+10. Reconcile against separately pinned city and operator feeds using name/short-name agreement and distance. Accept only unambiguous one-to-one links per source; fuzzy and proximity-only candidates stay in the review file. Current-feed absence does not establish retirement. Current-feed presence does not certify the station's historical opening date. All rows carry `opening_date_status=unverified_first_trip_proxy`; `earlier_same_name_trip_at` and `service_date_review_reasons` expose prior history and date risks without silently merging relocations or rack conversions.
 
 Examples of accepted name histories:
 
@@ -84,15 +98,15 @@ Examples of accepted name histories:
 
 Historical catalogs contain `online date` / `online_date` and, separately, `dateCreated`. The 2013 README describes online date as when a station went live, but later catalogs disagree in some cases. The output therefore retains the earliest and latest reported online dates separately from first trip, and keeps creation dates in the catalog audit. **605 Chicago entities have a reported online date; 529 have conflicting calendar dates across snapshots.** Catalog records without an associated trip remain in `station_catalog.csv`; no first-trip date is invented for them.
 
-The result retains 3,676 entities across the entire system; 172 cannot be placed reliably and are also exported to `stations_unlocated.csv`. There are 81 entities outside the current city boundary and 39 operational entities. These categories can overlap. Missing coordinates prevent a definitive city/suburb assignment, so those entities are absent from `stations.csv`.
+The result retains 2,748 entities across the entire system; 401 cannot be placed reliably and are also exported to `stations_unlocated.csv`. There are 54 entities outside the current city boundary and 39 operational entities. These categories can overlap. Missing coordinates prevent a definitive city/suburb assignment, so those entities are absent from `stations.csv`.
 
 Potential identity links still needing review:
 
 | Reason | Pairs |
 |---|---:|
-| possible_rename_or_rack_conversion | 418 |
-| reused_id_or_relocation | 2,293 |
-| shared_id_location_unknown | 499 |
+| possible_rename_or_rack_conversion | 96 |
+| reused_id_or_relocation | 538 |
+| shared_id_location_unknown | 629 |
 
 These pairs are diagnostics, not recommended automatic merges. A raw numeric ID can refer to unrelated stations over time. Rack conversions, larger relocations, retired names and low-volume GPS anomalies need additional evidence. The uncertain identities mean first-trip estimates for some split entities may be later than the underlying station's actual first service.
 
@@ -100,6 +114,6 @@ Divvy's [system-data description](https://divvybikes.com/system-data) says staff
 
 ## Validation and reproducibility
 
-All 12 full-dataset checks passed: all archives present and verified; all 114,878,536 endpoints reconcile between mapped and excluded groups; entity keys are unique; all reported first dates equal observation minima; all mapping and merge keys resolve; the city table has coordinates and dates; and the SQL query reproduces its row count. Unit tests separately cover ID changes, spatial separation, ambiguous missing locations, name recovery, arrival-first logic, mixed timestamp formats and reversed trips.
+All 18 full-dataset checks passed: all archives present and verified; all 114,878,536 endpoints reconcile between mapped and excluded groups; entity keys are unique; all reported first dates equal observation minima; all mapping and merge keys resolve; the city table has coordinates and dates; and the SQL query reproduces its row count. Unit tests separately cover ID changes, spatial separation, ambiguous missing locations, name recovery, arrival-first logic, mixed timestamp formats and reversed trips.
 
 See [README](../README.md) for commands and the [machine-readable validation](validation.json). The [DuckDB query](../sql/first_trip.sql) recomputes the reference from the compact observation table. Source ZIPs are retained; extracted trip CSVs are temporary, and cached member summaries make reruns fast.

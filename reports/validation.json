@@ -1,5 +1,11 @@
 {
   "checks": {
+    "accepted_feed_matches_one_to_one": true,
+    "every_feed_row_accounted_for": true,
+    "no_fuzzy_only_matches_accepted": true,
+    "all_opening_dates_explicitly_unverified": true,
+    "current_stations_preserve_city_rows_and_columns": true,
+    "current_stations_join_published_reference_exactly": true,
     "all_archives_downloaded_and_profiled": true,
     "all_downloads_crc_verified": true,
     "all_trip_rows_accounted_for": true,
@@ -14,14 +20,14 @@
     "every_month_in_observed_coverage_present": true
   },
   "metrics": {
-    "chicago_rows": 3389,
-    "unique_keys": 3389,
-    "unique_current_source_ids": 2867,
-    "public_racks": 1422,
-    "low_evidence_rows": 569,
+    "chicago_rows": 2261,
+    "unique_keys": 2261,
+    "unique_current_source_ids": 2217,
+    "public_racks": 867,
+    "low_evidence_rows": 89,
     "with_online_dates": 605,
     "conflicting_online_dates": 529,
-    "arrival_precedes_departure": 2215,
+    "arrival_precedes_departure": 1437,
     "earliest_station_trip": "2013-06-27 01:06:00",
     "latest_station_trip": "2026-08-31 23:59:43.005000"
   },

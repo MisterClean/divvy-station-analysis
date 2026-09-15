@@ -31,3 +31,13 @@ source publisher's applicable terms.
 
 This is an independent analysis, with no affiliation or endorsement implied
 from Divvy, Lyft or the City of Chicago.
+
+## Station feed comparison
+
+The analytical comparison uses the [City's station inventory](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq)
+and the operator's [GBFS station information and status feeds](https://gbfs.divvybikes.com/gbfs/gbfs.json),
+linked by Divvy's [system-data page](https://divvybikes.com/system-data).
+Small source snapshots accompany this analysis in `data/reference/feeds/`; their
+URLs, retrieval timestamps and SHA-256 hashes are recorded in
+`data/reference/station_feeds.json`. Source terms continue to apply. Current
+status is an observation at the snapshot time, not a historical installation date.

@@ -37,6 +37,8 @@ def main() -> None:
             "WHERE first_trip_role='end' ORDER BY station_first_trip_at LIMIT 1",
             "WHERE station_name='Field Museum' ORDER BY station_first_trip_at LIMIT 1",
             "ORDER BY station_first_trip_at DESC LIMIT 2",
+            "WHERE station_name IN ('Oketo Ave & Addison St','Public Rack - Emerald Ave & 45th St')",
+            "WHERE station_first_trip_at >= '2023-01-01' AND earlier_same_name_trip_at < '2023-01-01' ORDER BY station_first_trip_at LIMIT 1",
         ):
             samples.extend(fetch_dicts(connection, "SELECT * FROM stations " + selection))
     grouped = defaultdict(list)
@@ -92,6 +94,10 @@ def verify_row(row: dict, target: dict, archive: str, member: str, evidence: lis
             "trip_id": trip_id,
             "role": target["first_trip_role"],
             "event_at": str(timestamp),
+            "source_lat": row.get("start_lat" if is_start else "end_lat"),
+            "source_lon": row.get("start_lng" if is_start else "end_lng"),
+            "reference_lat": target["station_lat"],
+            "reference_lon": target["station_lon"],
             "archive": archive,
             "member": member,
             "verified": True,

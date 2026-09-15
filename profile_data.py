@@ -15,7 +15,7 @@ from pathlib import Path
 
 import duckdb
 
-PROFILE_VERSION = 2
+PROFILE_VERSION = 3
 
 
 def literal(value: str) -> str:
@@ -126,6 +126,14 @@ def summarize_trips(connection: duckdb.DuckDBPyConnection, output: Path) -> dict
     """)
     # Both ends matter: an arrival can precede a station's first recorded departure.
     # Keep missing IDs/names as separate groups for coverage accounting and later resolution.
+    # Grid-rounded coordinates describe an area roughly 1 km across, not a dock.
+    # Retain those trips and their dates, but use only finer coordinates for locations.
+    connection.execute("""
+        CREATE OR REPLACE TEMP VIEW located_endpoints AS SELECT *,
+            lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3 AS in_region,
+            abs(lat - round(lat, 2)) < 1e-9 AND abs(lon - round(lon, 2)) < 1e-9 AS coarse
+        FROM endpoints
+    """)
     connection.execute(f"""
         COPY (
           SELECT station_id, station_name, role,
@@ -134,14 +142,17 @@ def summarize_trips(connection: duckdb.DuckDBPyConnection, output: Path) -> dict
             min(event_at) FILTER (WHERE valid_trip) AS first_at,
             max(event_at) FILTER (WHERE valid_trip) AS last_at,
             arg_min(trip_id, struct_pack(t := event_at, id := trip_id)) FILTER (WHERE valid_trip) AS first_trip_id,
-            count(*) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS coordinate_count,
-            median(lat) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lat,
-            median(lon) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lon,
-            quantile_cont(lat, 0.05) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lat_p05,
-            quantile_cont(lat, 0.95) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lat_p95,
-            quantile_cont(lon, 0.05) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lon_p05,
-            quantile_cont(lon, 0.95) FILTER (WHERE lat BETWEEN 41.4 AND 42.3 AND lon BETWEEN -88.1 AND -87.3) AS lon_p95
-          FROM endpoints GROUP BY station_id, station_name, role
+            count(*) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS coordinate_count,
+            count(*) FILTER (WHERE in_region AND coarse AND valid_trip) AS coarse_coordinate_count,
+            median(lat) FILTER (WHERE in_region AND coarse AND valid_trip) AS coarse_lat,
+            median(lon) FILTER (WHERE in_region AND coarse AND valid_trip) AS coarse_lon,
+            median(lat) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lat,
+            median(lon) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lon,
+            quantile_cont(lat, 0.05) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lat_p05,
+            quantile_cont(lat, 0.95) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lat_p95,
+            quantile_cont(lon, 0.05) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lon_p05,
+            quantile_cont(lon, 0.95) FILTER (WHERE in_region AND NOT coarse AND valid_trip) AS lon_p95
+          FROM located_endpoints GROUP BY station_id, station_name, role
         ) TO {literal(str(output / "observations.parquet"))} (FORMAT PARQUET, COMPRESSION ZSTD)
     """)
     return profile

@@ -1,0 +1,42 @@
+{
+  "baseline_artifact_sha256": "ae878cf77976950cf24224d982c5d58990fbf751ea663e7a92ea2d612a16665c",
+  "current_artifact_sha256": "dba1f3c5f245d45b9dd87064bef201dc12af592f61d9c2cff98836313a72a813",
+  "baseline_rows": 3389,
+  "cleaned_rows": 2261,
+  "baseline_types": {
+    "station": 1967,
+    "public_rack": 1422
+  },
+  "cleaned_types": {
+    "station": 1394,
+    "public_rack": 867
+  },
+  "baseline_coarse_grid_rows": 1122,
+  "baseline_low_evidence_rows": 569,
+  "cleaned_low_evidence_rows": 89,
+  "trace_dispositions": {
+    "reassigned_or_rekeyed": 824,
+    "same_key": 2181,
+    "retained_unlocated": 394
+  },
+  "earlier_unlocated_same_name_count": 8,
+  "earlier_same_name_history_rows": 52,
+  "earlier_same_name_history_crosses_2023": 17,
+  "service_date_review_rows": 384,
+  "earlier_unlocated_same_name_crosses_2023": 2,
+  "coarse_named_endpoints": 287091,
+  "affected_observation_groups": 13544,
+  "observation_accounting": {
+    "old_observation_rows": 195101,
+    "old_endpoints": 103282528,
+    "joined_rows": 195101,
+    "joined_endpoints": 103282528,
+    "changed_counts": 0
+  },
+  "checks": {
+    "every_old_observation_joined_once": true,
+    "every_old_valid_endpoint_preserved": true,
+    "no_observation_endpoint_counts_changed": true,
+    "every_old_chicago_candidate_traced": true
+  }
+}
